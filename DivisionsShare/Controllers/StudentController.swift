@@ -1,5 +1,5 @@
 //
-//  DivisionsController.swift
+//  StudentController.swift
 //  DivisionsShare
 //
 //  Created by Krefting, Max (PGW) on 23/05/2021.
@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class DivisionsController: ObservableObject {
+class StudentController: ObservableObject {
     
     @Published var divisions: [Division] = []
     private let db = Firestore.firestore()
@@ -17,12 +17,12 @@ class DivisionsController: ObservableObject {
     
     func fetchData(){
         if (user != nil) {
-            db.collection("divisions").whereField("teacherID", isEqualTo: user!.uid).addSnapshotListener({(snapshot, error) in
+            db.collection("divisions").whereField("studentsID", arrayContains: user!.uid).addSnapshotListener({(snapshot, error) in
                 guard let documents = snapshot?.documents else {
                     print ("no docs returned!")
                     return
                 }
-                
+
                 self.divisions = documents.map({docSnapshot -> Division in
                     let data = docSnapshot.data()
                     let id = docSnapshot.documentID
@@ -33,23 +33,24 @@ class DivisionsController: ObservableObject {
                     return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentsID: studentsID)
                 })
             })
+        } else {
+            print("Error getting student divs, no user found")
         }
     }
     
-    func addDivision(name: String) {
+    func joinDivision(joinCode: String, handler: @escaping () -> Void) {
+        // check if such joinCode exists + add user to it
         if (user != nil) {
-            db.collection("divisions").addDocument(data: [
-                                                    "name": name,
-                                                    "joinCode": String(Int.random(in: 10000..<99999)),
-                                                    "teacherID": user!.uid,
-                                                    "studentsID":[]]) { err in
+            db.collection("divisions").whereField("joinCode", isEqualTo: joinCode).getDocuments() { [self] (querySnapshot, err) in
                 if let err = err {
-                    print("error adding document! \(err)")
+                    print("Error checking joinCode: \(err)")
                 } else {
-                    print("division added")
+                    for document in querySnapshot!.documents {
+                        self.db.collection("divisions").document(document.documentID).updateData(["studentsID": FieldValue.arrayUnion([user!.uid])])
+                        handler()
+                    }
                 }
             }
         }
     }
-    
 }

@@ -19,6 +19,7 @@ struct DivisionsShareApp: App {
                 .environmentObject(AuthController())
                 .environmentObject(DivisionsController())
                 .environmentObject(TestsController())
+                .environmentObject(StudentController())
         }
     }
 }

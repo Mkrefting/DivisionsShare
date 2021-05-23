@@ -16,8 +16,6 @@ struct GeneralView: View {
     @State private var addTest: Bool = false
 
     var body: some View {
-        NavigationView{
-            VStack{
                 List{
                     ForEach(testsController.tests){ test in
                         HStack{
@@ -27,8 +25,6 @@ struct GeneralView: View {
                         }
                     }
                 }
-            }
-            .navigationBarTitle("\(division.name) Tests")
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear{
                 self.testsController.fetchData(divisionID: division.id)
@@ -44,7 +40,7 @@ struct GeneralView: View {
             .sheet(isPresented: $addTest, content: {
                 AddTestView(isOpen: $addTest, divisionID: self.division.id)
             })
-        }
+            .navigationBarTitle("\(division.name) Tests")
     }
 }
 

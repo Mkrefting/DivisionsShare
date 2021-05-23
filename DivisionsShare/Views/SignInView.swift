@@ -46,7 +46,7 @@ struct SignInView: View {
                 
                 NavigationLink("Create Account", destination: SignUpView())
                 .padding()
-            
+                
                 Spacer()
                 
             }.navigationBarTitle("Sign In").padding()
