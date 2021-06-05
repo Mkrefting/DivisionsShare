@@ -20,6 +20,10 @@ class TeacherController: ObservableObject {
     @Published var divisionChosen: Bool = false
     @Published var currentDivision: Division = Division.blank
 
+    @Published var currentTest: Test = Test.blank
+    
+    @Published var currentTestScores: [Score] = []
+    
     //let divisionsHandler: DivisionsHandler = DivisionsHandler()
     //let testsHandler: TestsHandler = TestsHandler()
     
@@ -27,10 +31,15 @@ class TeacherController: ObservableObject {
     
     func fetchData(){
         // can only get tests data once division has been found
+        print("INFO: Initial opening of tab view -> Fetching divisions, setting current division, fetch tests")
         self._fetchDivisions(handler: {
             self._setCurrentDivision()
             self._fetchTests()
         })
+    }
+    
+    func fetchCurrentTestScores(){
+        self._fetchCurrentTestScores()
     }
     
     func updateCurrentDivision(division: Division){
@@ -55,6 +64,10 @@ class TeacherController: ObservableObject {
         self._addTest(name: name, date: date)
     }
     
+    func deleteCurrentTest(){
+        self._deleteCurrentTest()
+    }
+    
     /// INTERNAL FUNCTIONS
 
     func _fetchDivisions(handler: @escaping () -> Void){
@@ -72,8 +85,8 @@ class TeacherController: ObservableObject {
                     let joinCode = data["joinCode"] as? String ?? ""
                     let teacherID = data["teacherID"] as? String ?? ""
                     let studentIDs = data["studentIDs"] as? [String] ?? []
-                    let studentNames = data["studentNames"] as? [String] ?? []
-                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs, studentNames: studentNames)
+                    //let studentNames = data["studentNames"] as? [String] ?? []
+                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs)
                 })
                 
                 handler()
@@ -87,7 +100,7 @@ class TeacherController: ObservableObject {
         // initial set currentDivision
         print("Setting Current Division")
         if !self.divisionChosen && !self.divisions.isEmpty {
-            print("initial update of currentDivision")
+            print("initial update of currentDivision, divisions is empty? \(self.divisions.isEmpty), divisionChosen? \(self.divisionChosen)")
             self._updateCurrentDivision(divisionName: self.divisions[0].name)
         } else {
             print("NO initial update of current division")
@@ -124,8 +137,7 @@ class TeacherController: ObservableObject {
                                                     "name": name,
                                                     "joinCode": String(Int.random(in: 10000..<99999)),
                                                     "teacherID": user!.uid,
-                                                    "studentIDs":[],
-                                                    "studentNames":[]]) { err in
+                                                    "studentIDs":[]]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -170,5 +182,36 @@ class TeacherController: ObservableObject {
             }
         }
     }
+    
+    func _deleteCurrentTest(){
+        // not working?
+        db.collection("test").document(self.currentTest.id).delete() { err in
+            if let err = err {
+                print("Error deleting test with name \(self.currentTest.name): \(err)")
+            } else {
+                print("Test with id \(self.currentTest.id) successfully removed!")
+            }
+            self.currentTest = Test.blank
+        }
+    }
+    
+    func _fetchCurrentTestScores(){
+        db.collection("scores").whereField("testID", isEqualTo: self.currentTest.id).order(by: "score", descending: true).addSnapshotListener({(snapshot, error) in
+            guard let documents = snapshot?.documents else {
+                print("no documents")
+                return
+            }
+            
+            self.currentTestScores = documents.map { docSnapshot -> Score in
+                let data = docSnapshot.data()
+                let docId = docSnapshot.documentID
+                let testID = data["testID"] as? String ?? ""
+                let studentID = data["studentID"] as? String ?? ""
+                let num = data["num"] as? Int ?? -1
+                return Score(id: docId, testID: testID, studentID: studentID, num: num)
+            }
+        })
+    }
+
     
 }

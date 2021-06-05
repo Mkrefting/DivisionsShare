@@ -30,8 +30,8 @@ class StudentController: ObservableObject {
                     let joinCode = data["joinCode"] as? String ?? ""
                     let teacherID = data["teacherID"] as? String ?? ""
                     let studentIDs = data["studentIDs"] as? [String] ?? []
-                    let studentNames = data["studentNames"] as? [String] ?? []
-                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs, studentNames: studentNames)
+                    //let studentNames = data["studentNames"] as? [String] ?? []
+                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs)
                 })
             })
         } else {

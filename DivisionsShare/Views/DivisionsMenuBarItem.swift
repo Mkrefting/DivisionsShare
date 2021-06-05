@@ -33,7 +33,7 @@ struct DivisionsMenuBarItem: View {
             if teacherController.divisionChosen {
                 Text(teacherController.currentDivision.name)
             } else {
-                Text("Choose Division")
+                Text("Add Division")
             }
         }
     }

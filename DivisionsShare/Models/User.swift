@@ -13,17 +13,17 @@ class User: Identifiable {
     var id: String
     var fullName: String
     var userType: String
-    var divisionIDs: [String]
+    //var divisionIDs: [String]
 
     
-    init(id: String, fullName: String, userType: String, divisionIDs: [String]){
+    init(id: String, fullName: String, userType: String){
         self.id = id
         self.fullName = fullName
         self.userType = userType
-        self.divisionIDs = divisionIDs
+        //self.divisionIDs = divisionIDs
     }
     
     #if DEBUG
-    static let example = User(id: "fa3k9rfu12", fullName: "Example Student", userType: "Student", divisionIDs: ["123"])
+    static let example = User(id: "fa3k9rfu12", fullName: "Example Student", userType: "Student")
     #endif
 }

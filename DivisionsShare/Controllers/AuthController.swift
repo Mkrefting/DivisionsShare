@@ -57,7 +57,7 @@ class AuthController: ObservableObject {
     func addUser(userType: String, fullName: String){
         let user = Auth.auth().currentUser
         if (user != nil) {
-            db.collection("users").addDocument(data: ["userID": user!.uid, "fullName": fullName, "userType": userType, "divisions": []]) { err in
+            db.collection("users").addDocument(data: ["userID": user!.uid, "fullName": fullName, "userType": userType]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -108,8 +108,8 @@ class AuthController: ObservableObject {
                     let userID = data["userID"] as? String ?? ""
                     let fullName = data["fullName"] as? String ?? ""
                     let userType = data["userType"] as? String ?? ""
-                    let divisionIDs = data["divisions"] as? [String] ?? []
-                    user = User(id: userID, fullName: fullName, userType: userType, divisionIDs: divisionIDs)
+                    //let divisionIDs = data["divisionIDs"] as? [String] ?? []
+                    user = User(id: userID, fullName: fullName, userType: userType)
                 }
             })
         } else {

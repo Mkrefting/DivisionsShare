@@ -12,7 +12,8 @@ struct TestsView: View {
     @EnvironmentObject var teacherController: TeacherController
     @State private var addDivision: Bool = false
     @State private var addTest: Bool = false
-
+    @State private var active: Bool = false
+    
     var body: some View {
         NavigationView {
             
@@ -21,16 +22,18 @@ struct TestsView: View {
                 if teacherController.divisionChosen {
                     List {
                         ForEach(teacherController.tests){ test in
-                            NavigationLink(destination: TestView(test: test)){
-                                TestDetails(test: test)
+                            NavigationLink(destination: TestView(test: test), isActive: $active){
+                                TestRow(test: test)
                             }
                         }
                     }
                     .listStyle(InsetGroupedListStyle())
+                } else {
+                    Text("No Division Selected")
                 }
                 
             }
-            .navigationBarTitle(Text("Your Division"), displayMode: .inline)
+            .navigationBarTitle(!active ? "Your Division" : teacherController.currentDivision.name, displayMode: .inline)
             .toolbar{
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -39,16 +42,20 @@ struct TestsView: View {
                             AddDivisionView(isOpen: $addDivision)
                         })
                 }
-                
+            
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add Test"){
-                        self.addTest = true
-                        print("Adding Test")
-                    }.sheet(isPresented: $addTest, content: {
-                        AddTestView(isOpen: $addTest)
-                    })
+                    if teacherController.divisionChosen { // only show "Add Test" if a division has been chosen
+                        Button("Add Test"){
+                            self.addTest = true
+                            print("Adding Test")
+                        }.sheet(isPresented: $addTest, content: {
+                            AddTestView(isOpen: $addTest)
+                        })
+                    }
                 }
+                
             }
         }
     }
+    
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestore
 
 class Test: Identifiable {
     var id: String
@@ -16,8 +15,8 @@ class Test: Identifiable {
     
     var dateString: String {
         let formatter = DateFormatter()
-        //formatter.dateFormat = "EEEE, dd 'of' MMMM"
-        formatter.dateStyle = .short
+        formatter.dateFormat = "d.M.yy"
+        //formatter.dateStyle = .short
         return formatter.string(from: date)
     }
     
@@ -27,6 +26,8 @@ class Test: Identifiable {
         self.name = name
         self.date = date
     }
+    
+    static let blank = Test(id: "", divisionID: "", name: "", date: Date())
     
     #if DEBUG
     static let example = Test(id: "fa3k9rfu12", divisionID: "12345", name: "Algebra 101", date: Date())

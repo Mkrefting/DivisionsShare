@@ -13,10 +13,12 @@ struct AddTestView: View {
     @Binding var isOpen: Bool
     @State private var testName: String = ""
     @State private var date: Date = Date()
+    @State private var showError: Bool = false
 
     var body: some View {
         NavigationView {
             VStack{
+                
                 TextField("Name:", text: $testName)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -25,9 +27,17 @@ struct AddTestView: View {
             
                 DatePicker("Date:", selection: $date, displayedComponents: [.date])
                 
+                if showError {
+                    Text("Please give the test a name").foregroundColor(Color.red).padding()
+                }
+            
                 Button(action: {
-                    self.teacherController.addTest(name: testName, date: date)
-                    self.isOpen = false
+                    if testName != ""{
+                        self.teacherController.addTest(name: testName, date: date)
+                        self.isOpen = false
+                    } else {
+                        self.showError = true
+                    }
                 }, label: {
                     Text("Submit")
                 })

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestDetails: View {
+struct TestRow: View {
     let test: Test
     var body: some View {
         HStack{

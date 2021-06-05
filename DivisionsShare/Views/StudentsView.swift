@@ -11,8 +11,8 @@ struct StudentsView: View {
     var division: Division
     var body: some View {
         List {
-            ForEach(division.studentNames, id: \.self) { studentName in
-                Text(studentName)
+            ForEach(division.studentIDs, id: \.self) { studentID in
+                Text(studentID)
             }
         }
     }
