@@ -9,28 +9,45 @@ import SwiftUI
 
 struct AddTestView: View {
     
-    @EnvironmentObject var testsController: TestsController
+    @EnvironmentObject var teacherController: TeacherController
     @Binding var isOpen: Bool
-    let divisionID: String
     @State private var testName: String = ""
-    
+    @State private var date: Date = Date()
+
     var body: some View {
-        VStack{
+        NavigationView {
+            VStack{
+                TextField("Name:", text: $testName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
             
-            TextField("Test Name:", text: $testName).padding()
-        
-            Button(action: {
-                self.testsController.addTest(name: testName, divisionID: divisionID)
-                self.isOpen = false
-            }, label: {
-                Text("Submit")
-            })
+                DatePicker("Date:", selection: $date, displayedComponents: [.date])
+                
+                Button(action: {
+                    self.teacherController.addTest(name: testName, date: date)
+                    self.isOpen = false
+                }, label: {
+                    Text("Submit")
+                })
+            }
+            .padding()
+            .navigationBarTitle(Text("Add Test"), displayMode: .inline)
+            .toolbar{
+                Button("Cancel"){
+                    self.isOpen = false
+                }
+            }
+            .onAppear {
+                print("Showing add test view")
+            }
         }
     }
 }
 
 struct AddTestView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTestView(isOpen: .constant(true), divisionID: "test div id")
+        AddTestView(isOpen: .constant(true))
     }
 }

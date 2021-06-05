@@ -24,13 +24,13 @@ struct SignInView: View {
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-    
+                    
                 SecureField("Password", text: $password)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-            
+                            
                 Button(action: {
                     guard !email.isEmpty, !password.isEmpty else {
                         return
@@ -40,17 +40,27 @@ struct SignInView: View {
                     Text("Sign In")
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
-                        .cornerRadius(8)
                         .background(Color.blue)
+                        .cornerRadius(15)
+
                 })
                 
+                
                 NavigationLink("Create Account", destination: SignUpView())
-                .padding()
+                    .padding()
                 
                 Spacer()
                 
-            }.navigationBarTitle("Sign In").padding()
-        }
+                
+                Button(action: {
+                    authController.signIn(email: "teacher@gmail.com", password: "password")
+                }, label: {
+                    Text("Debug Auto Sign In")
+                })
+                
+            }.navigationBarTitle("Sign In")
+            .padding()
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

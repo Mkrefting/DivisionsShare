@@ -9,7 +9,8 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class TestsController: ObservableObject {
+class TestsHandler: ObservableObject {
+    
     @Published var tests = [Test]()
     private let db = Firestore.firestore()
     private let user = Auth.auth().currentUser
@@ -34,13 +35,13 @@ class TestsController: ObservableObject {
         }
     }
     
-    func addTest(name: String, divisionID: String) {
+    func addTest(name: String, divisionID: String, date: Date) {
         if (user != nil) {
-            db.collection("tests").addDocument(data: ["divisionID": divisionID, "date": Date(), "name": name]) { err in
+            db.collection("tests").addDocument(data: ["divisionID": divisionID, "date": date, "name": name]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
-                    print("division added")
+                    print("test added")
                 }
             }
         }

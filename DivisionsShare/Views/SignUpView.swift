@@ -18,7 +18,6 @@ struct SignUpView: View {
     @State private var password: String = ""
     
     var body: some View {
-        NavigationView{
             VStack{
                 
                 VStack{
@@ -57,14 +56,16 @@ struct SignUpView: View {
                     Text("Create Account")
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
-                        .cornerRadius(8)
                         .background(Color.blue)
+                        .cornerRadius(15)
+
                 })
                 
                 Spacer()
                 
             }.navigationBarTitle("Sign Up")
-        }
+            .padding()
+        
     }
 }
 

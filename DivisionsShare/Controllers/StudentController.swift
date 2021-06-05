@@ -29,8 +29,9 @@ class StudentController: ObservableObject {
                     let name = data["name"] as? String ?? ""
                     let joinCode = data["joinCode"] as? String ?? ""
                     let teacherID = data["teacherID"] as? String ?? ""
-                    let studentsID = data["studentsID"] as? [String] ?? []
-                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentsID: studentsID)
+                    let studentIDs = data["studentIDs"] as? [String] ?? []
+                    let studentNames = data["studentNames"] as? [String] ?? []
+                    return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs, studentNames: studentNames)
                 })
             })
         } else {
@@ -46,7 +47,7 @@ class StudentController: ObservableObject {
                     print("Error checking joinCode: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        self.db.collection("divisions").document(document.documentID).updateData(["studentsID": FieldValue.arrayUnion([user!.uid])])
+                        self.db.collection("divisions").document(document.documentID).updateData(["studentIDs": FieldValue.arrayUnion([user!.uid]), "studentNames": FieldValue.arrayUnion(["name"])])
                         handler()
                     }
                 }

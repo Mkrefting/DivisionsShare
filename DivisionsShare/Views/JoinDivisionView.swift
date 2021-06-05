@@ -20,7 +20,7 @@ struct JoinDivisionView: View {
                 Text("No such division found").bold()
             }
             TextField("Division Join Code:", text: $joinCode).padding()
-        
+
             Button(action: {
                 self.studentController.joinDivision(joinCode: joinCode, handler: {
                     self.isOpen = false

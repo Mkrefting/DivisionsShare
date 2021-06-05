@@ -22,7 +22,7 @@ class AuthController: ObservableObject {
     }
     
     @Published var userType = ""
-    
+
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
             if let error = error {
@@ -32,6 +32,7 @@ class AuthController: ObservableObject {
             }
             
             DispatchQueue.main.async {
+                self?.setUserType()
                 self?.signedIn = true
             }
         }
@@ -46,6 +47,7 @@ class AuthController: ObservableObject {
                 self?.addUser(userType: userType, fullName: fullName)
             }
             DispatchQueue.main.async {
+                self?.setUserType()
                 self?.signedIn = true
             }
         }
@@ -55,7 +57,7 @@ class AuthController: ObservableObject {
     func addUser(userType: String, fullName: String){
         let user = Auth.auth().currentUser
         if (user != nil) {
-            db.collection("users").addDocument(data: ["userID": user!.uid, "name": fullName, "userType": userType, "divisions": []]) { err in
+            db.collection("users").addDocument(data: ["userID": user!.uid, "fullName": fullName, "userType": userType, "divisions": []]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -67,7 +69,7 @@ class AuthController: ObservableObject {
         }
     }
     
-    func setUserType(){
+    func setUserType() {
         var val = "no userType found"
         if (auth.currentUser != nil) {
             db.collection("users").whereField("userID", isEqualTo: auth.currentUser!.uid)
@@ -79,14 +81,41 @@ class AuthController: ObservableObject {
                             let data = document.data()
                             val = data["userType"] as? String ?? ""
                         }
+                        
                         DispatchQueue.main.async {
                             self.userType = val
                         }
+                        
                     }
             }
         } else {
             print("Failed to set userType, no user logged in found")
         }
+    }
+    
+    func getUser() -> User {
+        var user = User.example
+        let authUser = Auth.auth().currentUser
+        if (authUser != nil) {
+            db.collection("users").whereField("userID", isEqualTo: authUser!.uid).addSnapshotListener({(snapshot, error) in
+                guard (snapshot?.documents) != nil else {
+                    print ("no docs returned!")
+                    return
+                }
+                
+                for document in snapshot!.documents {
+                    let data = document.data()
+                    let userID = data["userID"] as? String ?? ""
+                    let fullName = data["fullName"] as? String ?? ""
+                    let userType = data["userType"] as? String ?? ""
+                    let divisionIDs = data["divisions"] as? [String] ?? []
+                    user = User(id: userID, fullName: fullName, userType: userType, divisionIDs: divisionIDs)
+                }
+            })
+        } else {
+            print("no user found - cannot fetch data")
+        }
+        return user
     }
     
     func signOut() {

@@ -17,8 +17,7 @@ struct DivisionsShareApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(AuthController())
-                .environmentObject(DivisionsController())
-                .environmentObject(TestsController())
+                .environmentObject(TeacherController())
                 .environmentObject(StudentController())
         }
     }

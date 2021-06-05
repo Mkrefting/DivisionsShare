@@ -26,7 +26,8 @@ struct TestResultsView: View {
                 self.studentController.fetchData()
             }
             .toolbar{
-                HStack{
+                ToolbarItemGroup(placement: .navigationBarLeading){
+                    Text(authController.getUser().fullName)
                     Button(action: {
                         authController.signOut()
                     }, label: {

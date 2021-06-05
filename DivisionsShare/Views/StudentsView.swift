@@ -10,7 +10,11 @@ import SwiftUI
 struct StudentsView: View {
     var division: Division
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(division.studentNames, id: \.self) { studentName in
+                Text(studentName)
+            }
+        }
     }
 }
 

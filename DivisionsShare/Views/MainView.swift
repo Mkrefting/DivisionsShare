@@ -15,16 +15,13 @@ struct MainView: View {
     
     var body: some View {
         VStack{
-            if authController.userType
-                == "Teacher"{
-                DivisionsView()
+            if authController.userType == "Teacher"{
+                DivisionTabView()
             } else if authController.userType == "Student" {
                 StudentTabView()
             } else {
-                Text("") // loading (maybe put spinning wheel?
+                SignInView()
             }
-        }.onAppear{
-            self.authController.setUserType()
         }
     }
 }

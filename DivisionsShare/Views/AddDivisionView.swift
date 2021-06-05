@@ -9,22 +9,45 @@ import SwiftUI
 
 struct AddDivisionView: View {
     
-    @EnvironmentObject var divisionsController: DivisionsController
+    @EnvironmentObject var teacherController: TeacherController
     
     @Binding var isOpen: Bool
+    @State private var showError: Bool = false
     @State private var divisionName: String = ""
     
     var body: some View {
-        VStack{
+        NavigationView{
+            VStack{
+                
+                TextField("Division Name:", text: $divisionName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                
+                if showError {
+                    Text("You already have a division with this name!").foregroundColor(Color.red).padding()
+                }
             
-            TextField("Division Name:", text: $divisionName).padding()
-        
-            Button(action: {
-                self.divisionsController.addDivision(name: divisionName)
-                self.isOpen = false
-            }, label: {
-                Text("Submit")
-            })
+                
+                Button(action: {
+                    self.showError = !self.teacherController.addDivision(name: divisionName)
+                    if !self.showError {
+                        self.isOpen = false
+                    }
+                }, label: {
+                    Text("Add")
+                })
+                
+                
+            }
+            .padding()
+            .navigationBarTitle(Text("Add Division"), displayMode: .inline)
+            .toolbar{
+                Button("Cancel"){
+                    self.isOpen = false
+                }
+            }
         }
     }
 }

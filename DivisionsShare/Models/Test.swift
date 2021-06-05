@@ -28,4 +28,8 @@ class Test: Identifiable {
         self.date = date
     }
     
+    #if DEBUG
+    static let example = Test(id: "fa3k9rfu12", divisionID: "12345", name: "Algebra 101", date: Date())
+    #endif
+    
 }
