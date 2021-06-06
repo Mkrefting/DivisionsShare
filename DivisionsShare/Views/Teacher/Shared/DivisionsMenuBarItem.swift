@@ -9,15 +9,15 @@ import SwiftUI
 
 struct DivisionsMenuBarItem: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     @Binding var addDivision: Bool
 
     var body: some View {
         Menu {
-            ForEach(teacherController.divisions.sorted(by: { $0.name < $1.name })) { division in
+            ForEach(teacherState.divisions.sorted(by: { $0.name < $1.name })) { division in
                 Button(action: {
-                    self.teacherController.updateCurrentDivision(division: division)
-                    self.teacherController.fetchCurrentDivisionTests()
+                    self.teacherState.updateCurrentDivision(division: division)
+                    self.teacherState.fetchCurrentDivisionTests()
                 }) {
                     Text(division.name)
                 }
@@ -30,8 +30,8 @@ struct DivisionsMenuBarItem: View {
                     .accentColor(.blue) // does not work in SwiftUI atm
             }
         } label: {
-            if teacherController.divisionChosen {
-                Text(teacherController.currentDivision.name)
+            if teacherState.divisionChosen {
+                Text(teacherState.currentDivision.name)
             } else {
                 Text("Add Division")
             }

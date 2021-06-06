@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddDivisionView: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     
     @Binding var isOpen: Bool
     @State private var showError: Bool = false
@@ -31,7 +31,7 @@ struct AddDivisionView: View {
             
                 
                 Button(action: {
-                    self.showError = !self.teacherController.addDivision(name: divisionName)
+                    self.showError = !self.teacherState.addDivision(name: divisionName)
                     if !self.showError {
                         self.isOpen = false
                     }

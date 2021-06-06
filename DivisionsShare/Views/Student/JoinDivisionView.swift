@@ -19,7 +19,8 @@ struct JoinDivisionView: View {
             if noCodeFound {
                 Text("No such division found").bold()
             }
-            TextField("Division Join Code:", text: $joinCode).padding()
+            TextField("Division Join Code:", text: $joinCode)
+                .padding()
 
             Button(action: {
                 self.studentController.joinDivision(joinCode: joinCode, handler: {

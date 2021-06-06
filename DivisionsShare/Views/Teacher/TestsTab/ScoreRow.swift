@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScoreRow: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     @StateObject var scoreVM = ScoreViewModel()
     
     //let score: Score
@@ -44,19 +44,19 @@ struct ScoreRow: View {
                     .padding(.all, 5)
                     .background(Color(.secondarySystemBackground))
                 Button("Done"){
-                    self.scoreVM.addScore(testID: teacherController.currentTest.id, resultNString: resultN)
+                    self.scoreVM.addScore(testID: teacherState.currentTest.id, resultNString: resultN)
                     self.addingScore = false
-                    self.teacherController.evaluateCurrentTestStatus()
+                    self.teacherState.evaluateCurrentTestStatus()
                 }
             }
             
         }
         .onAppear {
             self.scoreVM.studentID = studentID
-            self.scoreVM.testID = teacherController.currentTest.id
+            self.scoreVM.testID = teacherState.currentTest.id
             self.scoreVM.fetchFullName()
             self.scoreVM.fetchScore()
-            resultN = String(Int(teacherController.currentTest.outOf / 2 ))
+            resultN = String(Int(teacherState.currentTest.outOf / 2 ))
             if scoreVM.hasScore {
                 resultN = String(scoreVM.score.resultN)
             }

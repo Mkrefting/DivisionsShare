@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestsView: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     @State private var addDivision: Bool = false
     @State private var addTest: Bool = false
     let filters = ["All", "Pending"]
@@ -20,7 +20,7 @@ struct TestsView: View {
             
             VStack {
                 
-                if teacherController.divisionChosen {
+                if teacherState.divisionChosen {
                     
                     // filter lists
                     Picker("", selection: $filterIndex) {
@@ -30,7 +30,7 @@ struct TestsView: View {
                     }.pickerStyle(SegmentedPickerStyle()).padding()
                     
                     List {
-                        ForEach(teacherController.tests){ test in
+                        ForEach(teacherState.tests){ test in
                             if !(filterIndex == 1 && test.allScoresEntered){
                                 NavigationLink(destination: TestView(test: test)){
                                     TestRow(test: test)
@@ -46,7 +46,7 @@ struct TestsView: View {
                 }
                 
             }
-            .navigationBarTitle("Your Division", displayMode: .inline)
+            .navigationBarTitle("Tests", displayMode: .inline)
             .toolbar{
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -57,7 +57,7 @@ struct TestsView: View {
                 }
             
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if teacherController.divisionChosen { // only show "Add Test" if a division has been chosen
+                    if teacherState.divisionChosen { // only show "Add Test" if a division has been chosen
                         Button("Add Test"){
                             self.addTest = true
                             print("Adding Test")

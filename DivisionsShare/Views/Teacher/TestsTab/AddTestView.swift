@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddTestView: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     @Binding var isOpen: Bool
     @State private var testName: String = ""
     @State private var date: Date = Date()
@@ -41,7 +41,7 @@ struct AddTestView: View {
 
                 Button(action: {
                     if testName != "" && (Int(outOf) != nil){
-                        self.teacherController.addTest(name: testName, date: date, outOf: Int(outOf) ?? 100)
+                        self.teacherState.addTest(name: testName, date: date, outOf: Int(outOf) ?? 100)
                         self.isOpen = false
                     } else {
                         self.showError = true
@@ -56,9 +56,6 @@ struct AddTestView: View {
                 Button("Cancel"){
                     self.isOpen = false
                 }
-            }
-            .onAppear {
-                print("Showing add test view")
             }
         }
     }

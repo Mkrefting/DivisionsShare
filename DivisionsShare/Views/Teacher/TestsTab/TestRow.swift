@@ -12,7 +12,6 @@ struct TestRow: View {
     var body: some View {
         HStack{
             Text(test.name).foregroundColor(test.allScoresEntered ? .green : .red)
-
             Spacer()
             Text(test.dateString)
         }.padding()

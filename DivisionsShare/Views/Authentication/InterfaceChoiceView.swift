@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct InterfaceChoiceView: View {
     
     @EnvironmentObject var authController: AuthState
     
@@ -16,18 +16,12 @@ struct MainView: View {
     var body: some View {
         VStack{
             if authController.userType == "Teacher"{
-                DivisionTabView()
+                TeacherTabView()
             } else if authController.userType == "Student" {
                 StudentTabView()
             } else {
                 SignInView()
             }
         }
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
     }
 }

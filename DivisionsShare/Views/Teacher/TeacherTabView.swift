@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct DivisionTabView: View {
+struct TeacherTabView: View {
     
-    @EnvironmentObject var teacherController: TeacherState
+    @EnvironmentObject var teacherState: TeacherState
     
     var body: some View {
         TabView{
@@ -17,19 +17,13 @@ struct DivisionTabView: View {
                 .tabItem{
                     Label("Tests", systemImage: "square.and.pencil")
                 }
-            StudentsView(division: Division.example)
+            StudentsView()
                 .tabItem{
                     Label("Students", systemImage: "person.3.fill")
                 }
         }.onAppear {
-            self.teacherController.fetchData()
+            self.teacherState.fetchData()
         }
-    }
-}
-
-struct DivisionTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        DivisionTabView()
     }
 }
 

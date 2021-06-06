@@ -12,6 +12,7 @@ struct TestView: View {
     @EnvironmentObject var teacherState: TeacherState
     @StateObject var testVM = TestViewModel()
     @Environment(\.presentationMode) var presentationMode // used when test is deleted
+    @State private var showEdit: Bool = false
     let test: Test
     
     var body: some View {
@@ -45,15 +46,17 @@ struct TestView: View {
             .listStyle(InsetGroupedListStyle())
             // show stats here
         }
+        .onChange(of: testVM.closeDueToDelete) { _ in
+            presentationMode.wrappedValue.dismiss()
+            testVM.closeDueToDelete = false
+        }
         .navigationBarTitle(Text(test.name), displayMode: .inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    testVM.deleteCurrentTest()
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "trash")
-                        .font(.largeTitle)
+                Button("Edit") {
+                    self.showEdit = true
+                    //testVM.deleteCurrentTest()
+                    //presentationMode.wrappedValue.dismiss()
                 }
             }
         }
@@ -63,9 +66,14 @@ struct TestView: View {
             testVM.setDivisionName()
             testVM.fetchStudentIDs()
         }
+        .sheet(isPresented: $showEdit, content: {
+            EditTestView(testVM: testVM, isOpen: $showEdit)
+        })
         
     }
 }
+
+
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {

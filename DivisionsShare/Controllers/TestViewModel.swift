@@ -14,13 +14,24 @@ class TestViewModel: ObservableObject {
 
     var test: Test = Test.blank
     
+    var closeDueToDelete: Bool = true // turn to false when a test is deleted and the testView page needs to close
+    
     @Published var divisionName: String = ""
     @Published var studentIDs: [String] = []
     @Published var scores: [Score] = []
-        
-    // this is not working?
-    func deleteCurrentTest(){
-        db.collection("test").document(self.test.id).delete() { err in
+    
+    func updateTest(name: String, date: Date, outOf: Int){
+        db.collection("tests").document(self.test.id).updateData(["name": name, "date": date, "outOf": outOf]) { err in
+            if let err = err {
+                print("Error updating score: \(err)")
+            } else {
+                print("Score successfully updated")
+            }
+        }
+    }
+    
+    func deleteTest(){
+        db.collection("tests").document(self.test.id).delete() { err in
             if let err = err {
                 print("Error deleting test with name \(self.test.name): \(err)")
             } else {

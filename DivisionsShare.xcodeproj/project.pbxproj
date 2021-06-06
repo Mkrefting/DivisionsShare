@@ -22,18 +22,21 @@
 		763BCE78265A816B004ACFA9 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE77265A816B004ACFA9 /* AuthState.swift */; };
 		763BCE7E265A8223004ACFA9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE7D265A8223004ACFA9 /* SignInView.swift */; };
 		763BCE86265A8309004ACFA9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE85265A8309004ACFA9 /* SignUpView.swift */; };
-		763BCE8B265A83A0004ACFA9 /* DivisionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE8A265A83A0004ACFA9 /* DivisionsView.swift */; };
 		763BCE96265A83D4004ACFA9 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE95265A83D4004ACFA9 /* Division.swift */; };
-		763BCEA1265A8427004ACFA9 /* DivisionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCEA0265A8427004ACFA9 /* DivisionTabView.swift */; };
+		763BCEA1265A8427004ACFA9 /* TeacherTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCEA0265A8427004ACFA9 /* TeacherTabView.swift */; };
 		763BCEAB265A845A004ACFA9 /* StudentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCEAA265A845A004ACFA9 /* StudentsView.swift */; };
 		763BCEB0265A8486004ACFA9 /* AddDivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCEAF265A8486004ACFA9 /* AddDivisionView.swift */; };
 		764C93FB266AA53E00E5F5D3 /* TestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764C93FA266AA53E00E5F5D3 /* TestRow.swift */; };
 		764C9400266AA56B00E5F5D3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764C93FF266AA56B00E5F5D3 /* TestView.swift */; };
 		76624BC5266AC98F00E6BC70 /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76624BC4266AC98F00E6BC70 /* TestsView.swift */; };
+		7686FA55266D60940027A068 /* EditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686FA54266D60940027A068 /* EditTestView.swift */; };
+		7686FA77266D73E00027A068 /* StudentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686FA76266D73E00027A068 /* StudentRow.swift */; };
+		7686FA7C266D73E60027A068 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686FA7B266D73E60027A068 /* StudentView.swift */; };
+		7686FA81266D74970027A068 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686FA80266D74970027A068 /* StudentViewModel.swift */; };
 		76ADFEB1265AA120007F5E0D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEB0265AA120007F5E0D /* Test.swift */; };
 		76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */; };
 		76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */; };
-		76D70DE0265ABBBE00310827 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DDF265ABBBE00310827 /* MainView.swift */; };
+		76D70DE0265ABBBE00310827 /* InterfaceChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */; };
 		76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE4265ABC2000310827 /* StudentTabView.swift */; };
 		76D70DEA265ABC5600310827 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE9265ABC5600310827 /* AnalysisView.swift */; };
 		76D70DF2265ABC6D00310827 /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF1265ABC6D00310827 /* TestResultsView.swift */; };
@@ -87,18 +90,21 @@
 		763BCE77265A816B004ACFA9 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		763BCE7D265A8223004ACFA9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		763BCE85265A8309004ACFA9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		763BCE8A265A83A0004ACFA9 /* DivisionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsView.swift; sourceTree = "<group>"; };
 		763BCE95265A83D4004ACFA9 /* Division.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Division.swift; sourceTree = "<group>"; };
-		763BCEA0265A8427004ACFA9 /* DivisionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionTabView.swift; sourceTree = "<group>"; };
+		763BCEA0265A8427004ACFA9 /* TeacherTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTabView.swift; sourceTree = "<group>"; };
 		763BCEAA265A845A004ACFA9 /* StudentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsView.swift; sourceTree = "<group>"; };
 		763BCEAF265A8486004ACFA9 /* AddDivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDivisionView.swift; sourceTree = "<group>"; };
 		764C93FA266AA53E00E5F5D3 /* TestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRow.swift; sourceTree = "<group>"; };
 		764C93FF266AA56B00E5F5D3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		76624BC4266AC98F00E6BC70 /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
+		7686FA54266D60940027A068 /* EditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTestView.swift; sourceTree = "<group>"; };
+		7686FA76266D73E00027A068 /* StudentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRow.swift; sourceTree = "<group>"; };
+		7686FA7B266D73E60027A068 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		7686FA80266D74970027A068 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 		76ADFEB0265AA120007F5E0D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestView.swift; sourceTree = "<group>"; };
 		76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
-		76D70DDF265ABBBE00310827 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceChoiceView.swift; sourceTree = "<group>"; };
 		76D70DE4265ABC2000310827 /* StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabView.swift; sourceTree = "<group>"; };
 		76D70DE9265ABC5600310827 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		76D70DF1265ABC6D00310827 /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
@@ -217,24 +223,9 @@
 		763BCE7C265A8214004ACFA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				763BCE2D265A7F92004ACFA9 /* ContentView.swift */,
-				763BCE7D265A8223004ACFA9 /* SignInView.swift */,
-				763BCE85265A8309004ACFA9 /* SignUpView.swift */,
-				76D70DDF265ABBBE00310827 /* MainView.swift */,
-				763BCEA0265A8427004ACFA9 /* DivisionTabView.swift */,
-				763BCE8A265A83A0004ACFA9 /* DivisionsView.swift */,
-				76624BC4266AC98F00E6BC70 /* TestsView.swift */,
-				762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */,
-				763BCEAF265A8486004ACFA9 /* AddDivisionView.swift */,
-				764C93FA266AA53E00E5F5D3 /* TestRow.swift */,
-				76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */,
-				764C93FF266AA56B00E5F5D3 /* TestView.swift */,
-				76EA6DBC266D133700A1368A /* ScoreRow.swift */,
-				763BCEAA265A845A004ACFA9 /* StudentsView.swift */,
-				76D70DE4265ABC2000310827 /* StudentTabView.swift */,
-				76D70DE9265ABC5600310827 /* AnalysisView.swift */,
-				76D70DF1265ABC6D00310827 /* TestResultsView.swift */,
-				76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */,
+				7686FA64266D70B60027A068 /* Authentication */,
+				7686FA65266D70EB0027A068 /* Teacher */,
+				7686FA66266D70F90027A068 /* Student */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +241,71 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7686FA64266D70B60027A068 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				763BCE2D265A7F92004ACFA9 /* ContentView.swift */,
+				763BCE7D265A8223004ACFA9 /* SignInView.swift */,
+				763BCE85265A8309004ACFA9 /* SignUpView.swift */,
+				76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7686FA65266D70EB0027A068 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				763BCEA0265A8427004ACFA9 /* TeacherTabView.swift */,
+				7686FA6F266D728D0027A068 /* Shared */,
+				7686FA67266D711D0027A068 /* TestsTab */,
+				7686FA68266D71250027A068 /* StudentsTab */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		7686FA66266D70F90027A068 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				76D70DE4265ABC2000310827 /* StudentTabView.swift */,
+				76D70DE9265ABC5600310827 /* AnalysisView.swift */,
+				76D70DF1265ABC6D00310827 /* TestResultsView.swift */,
+				76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		7686FA67266D711D0027A068 /* TestsTab */ = {
+			isa = PBXGroup;
+			children = (
+				76624BC4266AC98F00E6BC70 /* TestsView.swift */,
+				764C93FA266AA53E00E5F5D3 /* TestRow.swift */,
+				76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */,
+				764C93FF266AA56B00E5F5D3 /* TestView.swift */,
+				7686FA54266D60940027A068 /* EditTestView.swift */,
+				76EA6DBC266D133700A1368A /* ScoreRow.swift */,
+			);
+			path = TestsTab;
+			sourceTree = "<group>";
+		};
+		7686FA68266D71250027A068 /* StudentsTab */ = {
+			isa = PBXGroup;
+			children = (
+				763BCEAA265A845A004ACFA9 /* StudentsView.swift */,
+				7686FA76266D73E00027A068 /* StudentRow.swift */,
+				7686FA7B266D73E60027A068 /* StudentView.swift */,
+			);
+			path = StudentsTab;
+			sourceTree = "<group>";
+		};
+		7686FA6F266D728D0027A068 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */,
+				763BCEAF265A8486004ACFA9 /* AddDivisionView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		76ADFEFC265AAB25007F5E0D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +313,7 @@
 				762C044B266BCAA7005CD64E /* TeacherState.swift */,
 				76EAB6BD266D3728005C855E /* TestViewModel.swift */,
 				76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */,
+				7686FA80266D74970027A068 /* StudentViewModel.swift */,
 				76D70DF9265AC3D000310827 /* StudentController.swift */,
 			);
 			path = Controllers;
@@ -517,20 +574,22 @@
 				76D70DEA265ABC5600310827 /* AnalysisView.swift in Sources */,
 				76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */,
 				763BCE86265A8309004ACFA9 /* SignUpView.swift in Sources */,
+				7686FA55266D60940027A068 /* EditTestView.swift in Sources */,
 				76D70DFA265AC3D000310827 /* StudentController.swift in Sources */,
 				76ADFEB1265AA120007F5E0D /* Test.swift in Sources */,
+				7686FA81266D74970027A068 /* StudentViewModel.swift in Sources */,
 				76DF99D2266BFEBE00760642 /* Score.swift in Sources */,
+				7686FA77266D73E00027A068 /* StudentRow.swift in Sources */,
 				763BCE96265A83D4004ACFA9 /* Division.swift in Sources */,
 				762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */,
 				763BCEAB265A845A004ACFA9 /* StudentsView.swift in Sources */,
 				763BCE78265A816B004ACFA9 /* AuthState.swift in Sources */,
 				76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */,
-				76D70DE0265ABBBE00310827 /* MainView.swift in Sources */,
+				76D70DE0265ABBBE00310827 /* InterfaceChoiceView.swift in Sources */,
 				764C9400266AA56B00E5F5D3 /* TestView.swift in Sources */,
-				763BCE8B265A83A0004ACFA9 /* DivisionsView.swift in Sources */,
 				76624BC5266AC98F00E6BC70 /* TestsView.swift in Sources */,
 				763BCE7E265A8223004ACFA9 /* SignInView.swift in Sources */,
-				763BCEA1265A8427004ACFA9 /* DivisionTabView.swift in Sources */,
+				763BCEA1265A8427004ACFA9 /* TeacherTabView.swift in Sources */,
 				763BCEB0265A8486004ACFA9 /* AddDivisionView.swift in Sources */,
 				76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */,
 				76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */,
@@ -540,6 +599,7 @@
 				763BCE2C265A7F92004ACFA9 /* DivisionsShareApp.swift in Sources */,
 				760966D926625E540058D7B2 /* User.swift in Sources */,
 				76EAB6BE266D3728005C855E /* TestViewModel.swift in Sources */,
+				7686FA7C266D73E60027A068 /* StudentView.swift in Sources */,
 				764C93FB266AA53E00E5F5D3 /* TestRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
