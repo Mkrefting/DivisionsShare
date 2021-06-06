@@ -12,7 +12,6 @@ struct TestsView: View {
     @EnvironmentObject var teacherController: TeacherController
     @State private var addDivision: Bool = false
     @State private var addTest: Bool = false
-    @State private var active: Bool = false
         
     var body: some View {
         NavigationView {
@@ -22,7 +21,7 @@ struct TestsView: View {
                 if teacherController.divisionChosen {
                     List {
                         ForEach(teacherController.tests){ test in
-                            NavigationLink(destination: TestView(test: test), isActive: $active){
+                            NavigationLink(destination: TestView(test: test)){
                                 TestRow(test: test)
                             }
                         }
@@ -33,7 +32,7 @@ struct TestsView: View {
                 }
                 
             }
-            .navigationBarTitle(!active ? "Your Division" : teacherController.currentDivision.name, displayMode: .inline)
+            .navigationBarTitle("Your Division", displayMode: .inline)
             .toolbar{
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -53,7 +52,6 @@ struct TestsView: View {
                         })
                     }
                 }
-                
             }
         }
     }

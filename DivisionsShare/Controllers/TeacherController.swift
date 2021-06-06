@@ -65,9 +65,8 @@ class TeacherController: ObservableObject {
         self._deleteCurrentTest()
     }
     
-    func getFullName(ID: String) -> String {
-        return self._getFullName(ID: ID)
-        //return "test name"
+    func evaluateCurrentTestStatus(){
+        self._calculateTestStatus(testID: self.currentTest.id)
     }
     
     /// INTERNAL FUNCTIONS
@@ -168,7 +167,8 @@ class TeacherController: ObservableObject {
                     let name = data["name"] as? String ?? ""
                     let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
                     let outOf = data["outOf"] as? Int ?? -1
-                    return Test(id: docId, divisionID: divisionID, name: name, date: date, outOf: outOf)
+                    let allScoresEntered = data["allScoresEntered"] as? Bool ?? false
+                    return Test(id: docId, divisionID: divisionID, name: name, date: date, outOf: outOf, allScoresEntered: allScoresEntered)
                 }
             })
         }
@@ -176,7 +176,7 @@ class TeacherController: ObservableObject {
     
     func _addTest(name: String, date: Date, outOf: Int) {
         if (user != nil) {
-            db.collection("tests").addDocument(data: ["divisionID": self.currentDivision.id, "date": date, "name": name, "outOf": outOf]) { err in
+            db.collection("tests").addDocument(data: ["divisionID": self.currentDivision.id, "date": date, "name": name, "outOf": outOf, "allScoresEntered": false]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -217,20 +217,40 @@ class TeacherController: ObservableObject {
         })
     }
     
-    func _getFullName(ID: String) -> String {
-        var fullName = "not got yet"
-        db.collection("users").document(ID).getDocument { (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                fullName = data?["fullName"] as? String ?? ""
-            } else {
-                print("Document does not exist")
-                fullName = "error"
+    func _calculateTestStatus(testID: String) {
+        // check if there exists a document for each student ID + testID combo
+        var allScoresEntered = true
+        self.currentDivision.studentIDs.forEach { studentID in
+            db.collection("scores")
+                .whereField("testID", isEqualTo: testID)
+                .whereField("studentID", isEqualTo: studentID)
+                .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        if querySnapshot!.documents.isEmpty {
+                            allScoresEntered = false
+                            self._updateTestStatus(testID: testID, allScoresEntered: false)
+                        }
+                    }
             }
         }
-        return fullName
+        self._updateTestStatus(testID: testID, allScoresEntered: allScoresEntered)
+    }
+    
+    func _updateTestStatus(testID: String, allScoresEntered: Bool) {
+        if allScoresEntered != self.tests.filter( { $0.id == testID}).first?.allScoresEntered {
+            // only update if has changed!
+            db.collection("tests").document(testID).updateData(["allScoresEntered": allScoresEntered]) { err in
+                if let err = err {
+                    print("Error updating test allScoresEntered: \(err)")
+                } else {
+                    print("Test allScoresEntered successfully updated")
+                }
+            }
+        }
     }
 }
 
-// test: out of
 // scores (including delete)
+// filtering

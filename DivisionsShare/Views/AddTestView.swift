@@ -13,7 +13,7 @@ struct AddTestView: View {
     @Binding var isOpen: Bool
     @State private var testName: String = ""
     @State private var date: Date = Date()
-    @State private var outOf: Int = 25
+    @State private var outOf: String = ""
     @State private var showError: Bool = false
 
     var body: some View {
@@ -22,25 +22,26 @@ struct AddTestView: View {
                 
                 TextField("Name:", text: $testName)
                     .disableAutocorrection(true)
-                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                
+                TextField("Out of:", text: $outOf)
+                    .keyboardType(.decimalPad)
+                    //.frame(width: 100, height: nil)
+                    //.padding(.all, 5)
                     .padding()
                     .background(Color(.secondarySystemBackground))
             
-                Picker("Out of:", selection: $outOf) {
-                    ForEach(1...250, id: \.self) {
-                        Text("\($0)")
-                    }
-                }
-                
                 DatePicker("Date:", selection: $date, displayedComponents: [.date])
+                    .padding()
                 
                 if showError {
-                    Text("Please give the test a name").foregroundColor(Color.red).padding()
+                    Text("Please make sure that the test has a name and a valid maximum mark.").foregroundColor(Color.red).padding()
                 }
-            
+
                 Button(action: {
-                    if testName != ""{
-                        self.teacherController.addTest(name: testName, date: date, outOf: outOf)
+                    if testName != "" && (Int(outOf) != nil){
+                        self.teacherController.addTest(name: testName, date: date, outOf: Int(outOf) ?? 100)
                         self.isOpen = false
                     } else {
                         self.showError = true

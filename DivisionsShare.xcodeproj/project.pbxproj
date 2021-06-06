@@ -40,6 +40,7 @@
 		76D70DFA265AC3D000310827 /* StudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF9265AC3D000310827 /* StudentController.swift */; };
 		76D70DFF265ACA4C00310827 /* JoinDivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */; };
 		76DF99D2266BFEBE00760642 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF99D1266BFEBE00760642 /* Score.swift */; };
+		76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA6DBC266D133700A1368A /* ScoreRow.swift */; };
 		D92EC1852C03D3310BB62AA5 /* Pods_DivisionsShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C86ABC15BFE64C4C086CAC0 /* Pods_DivisionsShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		76D70DF9265AC3D000310827 /* StudentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentController.swift; sourceTree = "<group>"; };
 		76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDivisionView.swift; sourceTree = "<group>"; };
 		76DF99D1266BFEBE00760642 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		76EA6DBC266D133700A1368A /* ScoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRow.swift; sourceTree = "<group>"; };
 		78A62818F60E61D71D9EAB9B /* Pods-DivisionsShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShareTests.debug.xcconfig"; path = "Target Support Files/Pods-DivisionsShareTests/Pods-DivisionsShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B03B573AB9CA39F91FFE747B /* Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShare-DivisionsShareUITests/Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CC4D431FA4C057F371C15257 /* Pods-DivisionsShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShare.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShare/Pods-DivisionsShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				764C93FA266AA53E00E5F5D3 /* TestRow.swift */,
 				76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */,
 				764C93FF266AA56B00E5F5D3 /* TestView.swift */,
+				76EA6DBC266D133700A1368A /* ScoreRow.swift */,
 				763BCEAA265A845A004ACFA9 /* StudentsView.swift */,
 				76D70DE4265ABC2000310827 /* StudentTabView.swift */,
 				76D70DE9265ABC5600310827 /* AnalysisView.swift */,
@@ -518,6 +521,7 @@
 				762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */,
 				763BCEAB265A845A004ACFA9 /* StudentsView.swift in Sources */,
 				763BCE78265A816B004ACFA9 /* AuthController.swift in Sources */,
+				76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */,
 				76D70DE0265ABBBE00310827 /* MainView.swift in Sources */,
 				764C9400266AA56B00E5F5D3 /* TestView.swift in Sources */,
 				763BCE8B265A83A0004ACFA9 /* DivisionsView.swift in Sources */,
