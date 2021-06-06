@@ -13,7 +13,7 @@ struct TestsView: View {
     @State private var addDivision: Bool = false
     @State private var addTest: Bool = false
     @State private var active: Bool = false
-    
+        
     var body: some View {
         NavigationView {
             

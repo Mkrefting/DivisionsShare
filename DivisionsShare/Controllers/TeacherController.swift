@@ -24,9 +24,6 @@ class TeacherController: ObservableObject {
     
     @Published var currentTestScores: [Score] = []
     
-    //let divisionsHandler: DivisionsHandler = DivisionsHandler()
-    //let testsHandler: TestsHandler = TestsHandler()
-    
     /// EXTERNAL FUNCTIONS
     
     func fetchData(){
@@ -60,12 +57,17 @@ class TeacherController: ObservableObject {
         }
     }
     
-    func addTest(name: String, date: Date){
-        self._addTest(name: name, date: date)
+    func addTest(name: String, date: Date, outOf: Int){
+        self._addTest(name: name, date: date, outOf: outOf)
     }
     
     func deleteCurrentTest(){
         self._deleteCurrentTest()
+    }
+    
+    func getFullName(ID: String) -> String {
+        return self._getFullName(ID: ID)
+        //return "test name"
     }
     
     /// INTERNAL FUNCTIONS
@@ -165,15 +167,16 @@ class TeacherController: ObservableObject {
                     let divisionID = data["divisionID"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
                     let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
-                    return Test(id: docId, divisionID: divisionID, name: name, date: date)
+                    let outOf = data["outOf"] as? Int ?? -1
+                    return Test(id: docId, divisionID: divisionID, name: name, date: date, outOf: outOf)
                 }
             })
         }
     }
     
-    func _addTest(name: String, date: Date) {
+    func _addTest(name: String, date: Date, outOf: Int) {
         if (user != nil) {
-            db.collection("tests").addDocument(data: ["divisionID": self.currentDivision.id, "date": date, "name": name]) { err in
+            db.collection("tests").addDocument(data: ["divisionID": self.currentDivision.id, "date": date, "name": name, "outOf": outOf]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -196,7 +199,8 @@ class TeacherController: ObservableObject {
     }
     
     func _fetchCurrentTestScores(){
-        db.collection("scores").whereField("testID", isEqualTo: self.currentTest.id).order(by: "score", descending: true).addSnapshotListener({(snapshot, error) in
+        print("Getting scores for this testID: \(self.currentTest.id)")
+        db.collection("scores").whereField("testID", isEqualTo: self.currentTest.id).order(by: "resultN", descending: true).addSnapshotListener({(snapshot, error) in
             guard let documents = snapshot?.documents else {
                 print("no documents")
                 return
@@ -207,11 +211,26 @@ class TeacherController: ObservableObject {
                 let docId = docSnapshot.documentID
                 let testID = data["testID"] as? String ?? ""
                 let studentID = data["studentID"] as? String ?? ""
-                let num = data["num"] as? Int ?? -1
-                return Score(id: docId, testID: testID, studentID: studentID, num: num)
+                let resultN = data["resultN"] as? Int ?? -1
+                return Score(id: docId, testID: testID, studentID: studentID, resultN: resultN)
             }
         })
     }
-
     
+    func _getFullName(ID: String) -> String {
+        var fullName = "not got yet"
+        db.collection("users").document(ID).getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                fullName = data?["fullName"] as? String ?? ""
+            } else {
+                print("Document does not exist")
+                fullName = "error"
+            }
+        }
+        return fullName
+    }
 }
+
+// test: out of
+// scores (including delete)

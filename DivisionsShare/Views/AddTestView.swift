@@ -13,6 +13,7 @@ struct AddTestView: View {
     @Binding var isOpen: Bool
     @State private var testName: String = ""
     @State private var date: Date = Date()
+    @State private var outOf: Int = 25
     @State private var showError: Bool = false
 
     var body: some View {
@@ -25,6 +26,12 @@ struct AddTestView: View {
                     .padding()
                     .background(Color(.secondarySystemBackground))
             
+                Picker("Out of:", selection: $outOf) {
+                    ForEach(1...250, id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+                
                 DatePicker("Date:", selection: $date, displayedComponents: [.date])
                 
                 if showError {
@@ -33,7 +40,7 @@ struct AddTestView: View {
             
                 Button(action: {
                     if testName != ""{
-                        self.teacherController.addTest(name: testName, date: date)
+                        self.teacherController.addTest(name: testName, date: date, outOf: outOf)
                         self.isOpen = false
                     } else {
                         self.showError = true

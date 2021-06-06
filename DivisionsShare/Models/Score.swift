@@ -11,13 +11,15 @@ class Score: Identifiable {
     var id: String
     var testID: String
     var studentID: String
-    var num: Int
+    var resultN: Int
     
-    init(id: String, testID: String, studentID: String, num: Int){
+    init(id: String, testID: String, studentID: String, resultN: Int){
         self.id = id
         self.testID = testID
         self.studentID = studentID
-        self.num = num
+        self.resultN = resultN
     }
+    
+    static let blank = Score(id: "", testID: "", studentID: "", resultN: -1)
     
 }

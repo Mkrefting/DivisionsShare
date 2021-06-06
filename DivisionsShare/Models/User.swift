@@ -13,14 +13,12 @@ class User: Identifiable {
     var id: String
     var fullName: String
     var userType: String
-    //var divisionIDs: [String]
 
     
     init(id: String, fullName: String, userType: String){
         self.id = id
         self.fullName = fullName
         self.userType = userType
-        //self.divisionIDs = divisionIDs
     }
     
     #if DEBUG
