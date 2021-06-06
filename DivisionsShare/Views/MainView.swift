@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @EnvironmentObject var authController: AuthController
+    @EnvironmentObject var authController: AuthState
     
     @State private var userType: String = ""
     

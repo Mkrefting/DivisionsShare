@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DivisionTabView: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherController: TeacherState
     
     var body: some View {
         TabView{

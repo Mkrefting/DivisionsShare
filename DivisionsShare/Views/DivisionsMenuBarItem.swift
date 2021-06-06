@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DivisionsMenuBarItem: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherController: TeacherState
     @Binding var addDivision: Bool
 
     var body: some View {

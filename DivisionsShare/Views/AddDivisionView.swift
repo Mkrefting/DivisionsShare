@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddDivisionView: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherController: TeacherState
     
     @Binding var isOpen: Bool
     @State private var showError: Bool = false

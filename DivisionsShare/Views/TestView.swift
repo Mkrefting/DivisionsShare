@@ -9,28 +9,47 @@ import SwiftUI
 
 struct TestView: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherState: TeacherState
+    @StateObject var testVM = TestViewModel()
     @Environment(\.presentationMode) var presentationMode // used when test is deleted
-    //@State private var selectedStudentIndex: Int = 0
-
     let test: Test
     
     var body: some View {
         
         VStack{
-            Text("Out of: \(teacherController.currentTest.outOf)")
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Division:")
+                    Text("Date:")
+                    Text("Out of:")
+                }.padding()
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text("\(testVM.divisionName)")
+                    Text("\(test.dateString)")
+                    Text("\(testVM.test.outOf)")
+                }.padding()
+            }
+            
+            // i need to be filter through the list of students: looking at their names or their score.resultN
+            // i can find their names
+            // but can't find their scoreN...
+            // maybe create score before?
+            
             List {
-                ForEach(teacherController.currentDivision.studentIDs, id: \.self){ studentID in
-                    ScoreRow(ID: studentID)
+                ForEach(testVM.studentIDs, id: \.self){ studentID in
+                    ScoreRow(studentID: studentID)
                 }
             }
             .listStyle(InsetGroupedListStyle())
+            // show stats here
         }
         .navigationBarTitle(Text(test.name), displayMode: .inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    teacherController.deleteCurrentTest()
+                    testVM.deleteCurrentTest()
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "trash")
@@ -39,10 +58,10 @@ struct TestView: View {
             }
         }
         .onAppear {
-            self.teacherController.currentTest = test
-            //self.teacherController.fetchCurrentTestScores()
-            print(test.name)
-            print(teacherController.currentTest.name)
+            teacherState.currentTest = test
+            testVM.test = test
+            testVM.setDivisionName()
+            testVM.fetchStudentIDs()
         }
         
     }

@@ -11,7 +11,7 @@
 		6F193E303AE8840F097DE71B /* Pods_DivisionsShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F048F047938757F4BEEF566 /* Pods_DivisionsShare.framework */; };
 		760966D926625E540058D7B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760966D826625E540058D7B2 /* User.swift */; };
 		762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */; };
-		762C044C266BCAA7005CD64E /* TeacherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C044B266BCAA7005CD64E /* TeacherController.swift */; };
+		762C044C266BCAA7005CD64E /* TeacherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C044B266BCAA7005CD64E /* TeacherState.swift */; };
 		763BCE2C265A7F92004ACFA9 /* DivisionsShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE2B265A7F92004ACFA9 /* DivisionsShareApp.swift */; };
 		763BCE2E265A7F92004ACFA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE2D265A7F92004ACFA9 /* ContentView.swift */; };
 		763BCE30265A7F93004ACFA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763BCE2F265A7F93004ACFA9 /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 		763BCE3E265A7F94004ACFA9 /* DivisionsShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE3D265A7F94004ACFA9 /* DivisionsShareTests.swift */; };
 		763BCE49265A7F94004ACFA9 /* DivisionsShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE48265A7F94004ACFA9 /* DivisionsShareUITests.swift */; };
 		763BCE70265A8086004ACFA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 763BCE6F265A8086004ACFA9 /* GoogleService-Info.plist */; };
-		763BCE78265A816B004ACFA9 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE77265A816B004ACFA9 /* AuthController.swift */; };
+		763BCE78265A816B004ACFA9 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE77265A816B004ACFA9 /* AuthState.swift */; };
 		763BCE7E265A8223004ACFA9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE7D265A8223004ACFA9 /* SignInView.swift */; };
 		763BCE86265A8309004ACFA9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE85265A8309004ACFA9 /* SignUpView.swift */; };
 		763BCE8B265A83A0004ACFA9 /* DivisionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE8A265A83A0004ACFA9 /* DivisionsView.swift */; };
@@ -32,7 +32,7 @@
 		76624BC5266AC98F00E6BC70 /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76624BC4266AC98F00E6BC70 /* TestsView.swift */; };
 		76ADFEB1265AA120007F5E0D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEB0265AA120007F5E0D /* Test.swift */; };
 		76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */; };
-		76B6F79F266CE7AC00A72C4B /* TestScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6F79E266CE7AC00A72C4B /* TestScoreController.swift */; };
+		76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */; };
 		76D70DE0265ABBBE00310827 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DDF265ABBBE00310827 /* MainView.swift */; };
 		76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE4265ABC2000310827 /* StudentTabView.swift */; };
 		76D70DEA265ABC5600310827 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE9265ABC5600310827 /* AnalysisView.swift */; };
@@ -41,6 +41,7 @@
 		76D70DFF265ACA4C00310827 /* JoinDivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */; };
 		76DF99D2266BFEBE00760642 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF99D1266BFEBE00760642 /* Score.swift */; };
 		76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA6DBC266D133700A1368A /* ScoreRow.swift */; };
+		76EAB6BE266D3728005C855E /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EAB6BD266D3728005C855E /* TestViewModel.swift */; };
 		D92EC1852C03D3310BB62AA5 /* Pods_DivisionsShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C86ABC15BFE64C4C086CAC0 /* Pods_DivisionsShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +70,7 @@
 		720D0759202B7BBA3A899EF3 /* Pods-DivisionsShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShareTests.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShareTests/Pods-DivisionsShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		760966D826625E540058D7B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsMenuBarItem.swift; sourceTree = "<group>"; };
-		762C044B266BCAA7005CD64E /* TeacherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherController.swift; sourceTree = "<group>"; };
+		762C044B266BCAA7005CD64E /* TeacherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherState.swift; sourceTree = "<group>"; };
 		763BCE28265A7F92004ACFA9 /* DivisionsShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivisionsShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		763BCE2B265A7F92004ACFA9 /* DivisionsShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsShareApp.swift; sourceTree = "<group>"; };
 		763BCE2D265A7F92004ACFA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,7 +84,7 @@
 		763BCE48265A7F94004ACFA9 /* DivisionsShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsShareUITests.swift; sourceTree = "<group>"; };
 		763BCE4A265A7F94004ACFA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		763BCE6F265A8086004ACFA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		763BCE77265A816B004ACFA9 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		763BCE77265A816B004ACFA9 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		763BCE7D265A8223004ACFA9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		763BCE85265A8309004ACFA9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		763BCE8A265A83A0004ACFA9 /* DivisionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsView.swift; sourceTree = "<group>"; };
@@ -96,7 +97,7 @@
 		76624BC4266AC98F00E6BC70 /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
 		76ADFEB0265AA120007F5E0D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestView.swift; sourceTree = "<group>"; };
-		76B6F79E266CE7AC00A72C4B /* TestScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScoreController.swift; sourceTree = "<group>"; };
+		76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		76D70DDF265ABBBE00310827 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		76D70DE4265ABC2000310827 /* StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabView.swift; sourceTree = "<group>"; };
 		76D70DE9265ABC5600310827 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDivisionView.swift; sourceTree = "<group>"; };
 		76DF99D1266BFEBE00760642 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		76EA6DBC266D133700A1368A /* ScoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRow.swift; sourceTree = "<group>"; };
+		76EAB6BD266D3728005C855E /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		78A62818F60E61D71D9EAB9B /* Pods-DivisionsShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShareTests.debug.xcconfig"; path = "Target Support Files/Pods-DivisionsShareTests/Pods-DivisionsShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B03B573AB9CA39F91FFE747B /* Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShare-DivisionsShareUITests/Pods-DivisionsShare-DivisionsShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CC4D431FA4C057F371C15257 /* Pods-DivisionsShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShare.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShare/Pods-DivisionsShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,9 +253,10 @@
 		76ADFEFC265AAB25007F5E0D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				763BCE77265A816B004ACFA9 /* AuthController.swift */,
-				762C044B266BCAA7005CD64E /* TeacherController.swift */,
-				76B6F79E266CE7AC00A72C4B /* TestScoreController.swift */,
+				763BCE77265A816B004ACFA9 /* AuthState.swift */,
+				762C044B266BCAA7005CD64E /* TeacherState.swift */,
+				76EAB6BD266D3728005C855E /* TestViewModel.swift */,
+				76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */,
 				76D70DF9265AC3D000310827 /* StudentController.swift */,
 			);
 			path = Controllers;
@@ -520,7 +523,7 @@
 				763BCE96265A83D4004ACFA9 /* Division.swift in Sources */,
 				762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */,
 				763BCEAB265A845A004ACFA9 /* StudentsView.swift in Sources */,
-				763BCE78265A816B004ACFA9 /* AuthController.swift in Sources */,
+				763BCE78265A816B004ACFA9 /* AuthState.swift in Sources */,
 				76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */,
 				76D70DE0265ABBBE00310827 /* MainView.swift in Sources */,
 				764C9400266AA56B00E5F5D3 /* TestView.swift in Sources */,
@@ -529,13 +532,14 @@
 				763BCE7E265A8223004ACFA9 /* SignInView.swift in Sources */,
 				763BCEA1265A8427004ACFA9 /* DivisionTabView.swift in Sources */,
 				763BCEB0265A8486004ACFA9 /* AddDivisionView.swift in Sources */,
-				76B6F79F266CE7AC00A72C4B /* TestScoreController.swift in Sources */,
+				76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */,
 				76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */,
 				76D70DFF265ACA4C00310827 /* JoinDivisionView.swift in Sources */,
 				76D70DF2265ABC6D00310827 /* TestResultsView.swift in Sources */,
-				762C044C266BCAA7005CD64E /* TeacherController.swift in Sources */,
+				762C044C266BCAA7005CD64E /* TeacherState.swift in Sources */,
 				763BCE2C265A7F92004ACFA9 /* DivisionsShareApp.swift in Sources */,
 				760966D926625E540058D7B2 /* User.swift in Sources */,
+				76EAB6BE266D3728005C855E /* TestViewModel.swift in Sources */,
 				764C93FB266AA53E00E5F5D3 /* TestRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

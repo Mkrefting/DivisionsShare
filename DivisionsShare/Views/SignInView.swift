@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @EnvironmentObject var authController: AuthController
+    @EnvironmentObject var authController: AuthState
     
     @State private var email: String = ""
     @State private var password: String = ""

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddTestView: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherController: TeacherState
     @Binding var isOpen: Bool
     @State private var testName: String = ""
     @State private var date: Date = Date()

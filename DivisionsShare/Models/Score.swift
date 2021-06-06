@@ -11,15 +11,17 @@ class Score: Identifiable {
     var id: String
     var testID: String
     var studentID: String
+    var studentName: String // so can filter scores by name
     var resultN: Int
     
-    init(id: String, testID: String, studentID: String, resultN: Int){
+    init(id: String, testID: String, studentID: String, studentName: String, resultN: Int){
         self.id = id
         self.testID = testID
         self.studentID = studentID
         self.resultN = resultN
+        self.studentName = studentName
     }
     
-    static let blank = Score(id: "", testID: "", studentID: "", resultN: -1)
+    static let blank = Score(id: "", testID: "", studentID: "", studentName: "", resultN: -1)
     
 }

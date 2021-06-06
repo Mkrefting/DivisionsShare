@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TestsView: View {
     
-    @EnvironmentObject var teacherController: TeacherController
+    @EnvironmentObject var teacherController: TeacherState
     @State private var addDivision: Bool = false
     @State private var addTest: Bool = false
+    let filters = ["All", "Pending"]
+    @State private var filterIndex: Int = 0
         
     var body: some View {
         NavigationView {
@@ -19,14 +21,26 @@ struct TestsView: View {
             VStack {
                 
                 if teacherController.divisionChosen {
+                    
+                    // filter lists
+                    Picker("", selection: $filterIndex) {
+                        ForEach(0 ..< filters.count) {
+                            Text(self.filters[$0])
+                        }
+                    }.pickerStyle(SegmentedPickerStyle()).padding()
+                    
                     List {
                         ForEach(teacherController.tests){ test in
-                            NavigationLink(destination: TestView(test: test)){
-                                TestRow(test: test)
+                            if !(filterIndex == 1 && test.allScoresEntered){
+                                NavigationLink(destination: TestView(test: test)){
+                                    TestRow(test: test)
+                                }
                             }
                         }
                     }
                     .listStyle(InsetGroupedListStyle())
+                    
+                    
                 } else {
                     Text("No Division Selected")
                 }

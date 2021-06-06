@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestResultsView: View {
     
-    @EnvironmentObject var authController: AuthController
+    @EnvironmentObject var authController: AuthState
     @EnvironmentObject var studentController: StudentController
     
     @State private var joinDivision: Bool = false

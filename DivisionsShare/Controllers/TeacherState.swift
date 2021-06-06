@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class TeacherController: ObservableObject {
+class TeacherState: ObservableObject {
 
     private let db = Firestore.firestore()
     private let user = Auth.auth().currentUser
@@ -35,10 +35,6 @@ class TeacherController: ObservableObject {
         })
     }
     
-    func fetchCurrentTestScores(){
-        self._fetchCurrentTestScores()
-    }
-    
     func updateCurrentDivision(division: Division){
         self.currentDivision = division
         self.divisionChosen = true
@@ -59,10 +55,6 @@ class TeacherController: ObservableObject {
     
     func addTest(name: String, date: Date, outOf: Int){
         self._addTest(name: name, date: date, outOf: outOf)
-    }
-    
-    func deleteCurrentTest(){
-        self._deleteCurrentTest()
     }
     
     func evaluateCurrentTestStatus(){
@@ -184,37 +176,6 @@ class TeacherController: ObservableObject {
                 }
             }
         }
-    }
-    
-    func _deleteCurrentTest(){
-        // not working?
-        db.collection("test").document(self.currentTest.id).delete() { err in
-            if let err = err {
-                print("Error deleting test with name \(self.currentTest.name): \(err)")
-            } else {
-                print("Test with id \(self.currentTest.id) successfully removed!")
-            }
-            self.currentTest = Test.blank
-        }
-    }
-    
-    func _fetchCurrentTestScores(){
-        print("Getting scores for this testID: \(self.currentTest.id)")
-        db.collection("scores").whereField("testID", isEqualTo: self.currentTest.id).order(by: "resultN", descending: true).addSnapshotListener({(snapshot, error) in
-            guard let documents = snapshot?.documents else {
-                print("no documents")
-                return
-            }
-            
-            self.currentTestScores = documents.map { docSnapshot -> Score in
-                let data = docSnapshot.data()
-                let docId = docSnapshot.documentID
-                let testID = data["testID"] as? String ?? ""
-                let studentID = data["studentID"] as? String ?? ""
-                let resultN = data["resultN"] as? Int ?? -1
-                return Score(id: docId, testID: testID, studentID: studentID, resultN: resultN)
-            }
-        })
     }
     
     func _calculateTestStatus(testID: String) {

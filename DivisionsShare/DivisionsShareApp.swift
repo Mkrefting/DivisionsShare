@@ -16,8 +16,8 @@ struct DivisionsShareApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(AuthController())
-                .environmentObject(TeacherController())
+                .environmentObject(AuthState())
+                .environmentObject(TeacherState())
                 .environmentObject(StudentController())
         }
     }

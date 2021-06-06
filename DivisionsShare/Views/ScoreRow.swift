@@ -9,21 +9,22 @@ import SwiftUI
 
 struct ScoreRow: View {
     
-    @EnvironmentObject var teacherController: TeacherController
-    @StateObject var state = TestScoreController()
+    @EnvironmentObject var teacherController: TeacherState
+    @StateObject var scoreVM = ScoreViewModel()
     
-    let ID: String
+    //let score: Score
+    let studentID: String
     
     @State private var addingScore: Bool = false
     @State private var resultN: String = ""
     
     var body: some View {
         HStack {
-            Text(state.fullName)
+            Text(scoreVM.fullName)
             Spacer()
             if !addingScore {
-                if state.hasScore {
-                    Text(String(state.score.resultN))
+                if scoreVM.hasScore {
+                    Text(String(scoreVM.score.resultN))
                     Button(action: {
                         self.addingScore = true // technically this is editing a score - this difference is handled in the controller
                     }) {
@@ -43,7 +44,7 @@ struct ScoreRow: View {
                     .padding(.all, 5)
                     .background(Color(.secondarySystemBackground))
                 Button("Done"){
-                    self.state.addScore(testID: teacherController.currentTest.id, resultNString: resultN)
+                    self.scoreVM.addScore(testID: teacherController.currentTest.id, resultNString: resultN)
                     self.addingScore = false
                     self.teacherController.evaluateCurrentTestStatus()
                 }
@@ -51,13 +52,13 @@ struct ScoreRow: View {
             
         }
         .onAppear {
-            self.state.studentID = ID
-            self.state.testID = teacherController.currentTest.id
-            self.state.fetchFullName()
-            self.state.fetchScoreStatus()
+            self.scoreVM.studentID = studentID
+            self.scoreVM.testID = teacherController.currentTest.id
+            self.scoreVM.fetchFullName()
+            self.scoreVM.fetchScore()
             resultN = String(Int(teacherController.currentTest.outOf / 2 ))
-            if state.hasScore {
-                resultN = String(state.score.resultN)
+            if scoreVM.hasScore {
+                resultN = String(scoreVM.score.resultN)
             }
         }
     }

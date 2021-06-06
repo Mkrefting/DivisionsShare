@@ -9,7 +9,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class AuthController: ObservableObject {
+class AuthState: ObservableObject {
     
     let auth = Auth.auth()
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @EnvironmentObject var authController: AuthController
+    @EnvironmentObject var authController: AuthState
     
     let userTypes = ["Student", "Teacher"]
     @State private var userSelection: Int = 0
