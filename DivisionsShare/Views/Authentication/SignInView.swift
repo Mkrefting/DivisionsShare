@@ -55,7 +55,13 @@ struct SignInView: View {
                 Button(action: {
                     authController.signIn(email: "teacher@gmail.com", password: "password")
                 }, label: {
-                    Text("Debug Auto Sign In")
+                    Text("Teacher Auto Sign In")
+                })
+                
+                Button(action: {
+                    authController.signIn(email: "student@gmail.com", password: "password")
+                }, label: {
+                    Text("Student Auto Sign In")
                 })
                 
             }.navigationBarTitle("Sign In")

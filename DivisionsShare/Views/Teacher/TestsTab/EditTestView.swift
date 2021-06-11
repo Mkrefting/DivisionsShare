@@ -70,7 +70,8 @@ struct EditTestView: View {
                     presentationMode.wrappedValue.dismiss() // close sheet, also need to close test view
                     testVM.closeDueToDelete = false
                 }, label: {
-                    Text("Delete Test").accentColor(.red)
+                    Label("Delete Test", systemImage: "trash")
+                        .accentColor(.red)
                 })
             }
             .padding()

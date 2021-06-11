@@ -54,6 +54,7 @@ struct ScoreRow: View {
         .onAppear {
             self.scoreVM.studentID = studentID
             self.scoreVM.testID = teacherState.currentTest.id
+            self.scoreVM.divisionID = teacherState.currentDivision.id
             self.scoreVM.fetchFullName()
             self.scoreVM.fetchScore()
             resultN = String(Int(teacherState.currentTest.outOf / 2 ))

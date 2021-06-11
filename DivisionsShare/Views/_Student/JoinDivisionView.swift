@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct JoinDivisionView: View {
-    @EnvironmentObject var studentController: StudentController
     
-    @Binding var isOpen: Bool
+    @EnvironmentObject var _studentState: _StudentState
+    
+    @Binding var joinDivision: Bool
     @State private var joinCode: String = ""
     @State private var noCodeFound: Bool = false
     
@@ -23,7 +24,7 @@ struct JoinDivisionView: View {
                 .padding()
 
             Button(action: {
-                self.studentController.joinDivision(joinCode: joinCode, handler: {
+                self._studentState.joinDivision(joinCode: joinCode, handler: {
                     self.isOpen = false
                 })
                 if self.isOpen{

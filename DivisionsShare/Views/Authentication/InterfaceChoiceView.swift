@@ -18,7 +18,7 @@ struct InterfaceChoiceView: View {
             if authController.userType == "Teacher"{
                 TeacherTabView()
             } else if authController.userType == "Student" {
-                StudentTabView()
+                _StudentTabView()
             } else {
                 SignInView()
             }

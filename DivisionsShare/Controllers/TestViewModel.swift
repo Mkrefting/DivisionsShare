@@ -73,14 +73,15 @@ class TestViewModel: ObservableObject {
                 print("No scores to fetch")
                 return
             }
-            let scores = documents.map {docSnapshot -> Score in
+            self.scores = documents.map {docSnapshot -> Score in
                 let data = docSnapshot.data()
                 let id = docSnapshot.documentID
+                let divisionID = data["divisionID"] as? String ?? ""
                 let testID = data["testID"] as? String ?? ""
                 let studentID = data["studentID"] as? String ?? ""
                 let studentName = data["studentName"] as? String ?? ""
                 let resultN = data["resultN"] as? Int ?? -1
-                return Score(id: id, testID: testID, studentID: studentID, studentName: studentName, resultN: resultN)
+                return Score(id: id, divisionID: divisionID, testID: testID, studentID: studentID, studentName: studentName, resultN: resultN)
             }
         })
     }

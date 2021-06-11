@@ -18,7 +18,7 @@ struct DivisionsShareApp: App {
             ContentView()
                 .environmentObject(AuthState())
                 .environmentObject(TeacherState())
-                .environmentObject(StudentController())
+                .environmentObject(StudentState())
         }
     }
 }

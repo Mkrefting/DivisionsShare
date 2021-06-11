@@ -37,11 +37,11 @@
 		76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */; };
 		76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */; };
 		76D70DE0265ABBBE00310827 /* InterfaceChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */; };
-		76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE4265ABC2000310827 /* StudentTabView.swift */; };
-		76D70DEA265ABC5600310827 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE9265ABC5600310827 /* AnalysisView.swift */; };
-		76D70DF2265ABC6D00310827 /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF1265ABC6D00310827 /* TestResultsView.swift */; };
-		76D70DFA265AC3D000310827 /* StudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF9265AC3D000310827 /* StudentController.swift */; };
+		76D70DE5265ABC2000310827 /* _StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE4265ABC2000310827 /* _StudentTabView.swift */; };
+		76D70DFA265AC3D000310827 /* _StudentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF9265AC3D000310827 /* _StudentState.swift */; };
 		76D70DFF265ACA4C00310827 /* JoinDivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */; };
+		76DC41BB26736DA4007593CA /* _TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC41BA26736DA4007593CA /* _TestsView.swift */; };
+		76DC41C326736F66007593CA /* _DivisionsMenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC41C226736F66007593CA /* _DivisionsMenuBarItem.swift */; };
 		76DF99D2266BFEBE00760642 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF99D1266BFEBE00760642 /* Score.swift */; };
 		76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA6DBC266D133700A1368A /* ScoreRow.swift */; };
 		76EAB6BE266D3728005C855E /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EAB6BD266D3728005C855E /* TestViewModel.swift */; };
@@ -105,11 +105,11 @@
 		76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestView.swift; sourceTree = "<group>"; };
 		76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceChoiceView.swift; sourceTree = "<group>"; };
-		76D70DE4265ABC2000310827 /* StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabView.swift; sourceTree = "<group>"; };
-		76D70DE9265ABC5600310827 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
-		76D70DF1265ABC6D00310827 /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
-		76D70DF9265AC3D000310827 /* StudentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentController.swift; sourceTree = "<group>"; };
+		76D70DE4265ABC2000310827 /* _StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _StudentTabView.swift; sourceTree = "<group>"; };
+		76D70DF9265AC3D000310827 /* _StudentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _StudentState.swift; sourceTree = "<group>"; };
 		76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDivisionView.swift; sourceTree = "<group>"; };
+		76DC41BA26736DA4007593CA /* _TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TestsView.swift; sourceTree = "<group>"; };
+		76DC41C226736F66007593CA /* _DivisionsMenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _DivisionsMenuBarItem.swift; sourceTree = "<group>"; };
 		76DF99D1266BFEBE00760642 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		76EA6DBC266D133700A1368A /* ScoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRow.swift; sourceTree = "<group>"; };
 		76EAB6BD266D3728005C855E /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 			children = (
 				7686FA64266D70B60027A068 /* Authentication */,
 				7686FA65266D70EB0027A068 /* Teacher */,
-				7686FA66266D70F90027A068 /* Student */,
+				7686FA66266D70F90027A068 /* _Student */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,15 +263,15 @@
 			path = Teacher;
 			sourceTree = "<group>";
 		};
-		7686FA66266D70F90027A068 /* Student */ = {
+		7686FA66266D70F90027A068 /* _Student */ = {
 			isa = PBXGroup;
 			children = (
-				76D70DE4265ABC2000310827 /* StudentTabView.swift */,
-				76D70DE9265ABC5600310827 /* AnalysisView.swift */,
-				76D70DF1265ABC6D00310827 /* TestResultsView.swift */,
+				76D70DE4265ABC2000310827 /* _StudentTabView.swift */,
+				76DC41BA26736DA4007593CA /* _TestsView.swift */,
+				76DC41C226736F66007593CA /* _DivisionsMenuBarItem.swift */,
 				76D70DFE265ACA4C00310827 /* JoinDivisionView.swift */,
 			);
-			path = Student;
+			path = _Student;
 			sourceTree = "<group>";
 		};
 		7686FA67266D711D0027A068 /* TestsTab */ = {
@@ -314,7 +314,7 @@
 				76EAB6BD266D3728005C855E /* TestViewModel.swift */,
 				76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */,
 				7686FA80266D74970027A068 /* StudentViewModel.swift */,
-				76D70DF9265AC3D000310827 /* StudentController.swift */,
+				76D70DF9265AC3D000310827 /* _StudentState.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -571,17 +571,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				763BCE2E265A7F92004ACFA9 /* ContentView.swift in Sources */,
-				76D70DEA265ABC5600310827 /* AnalysisView.swift in Sources */,
 				76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */,
 				763BCE86265A8309004ACFA9 /* SignUpView.swift in Sources */,
 				7686FA55266D60940027A068 /* EditTestView.swift in Sources */,
-				76D70DFA265AC3D000310827 /* StudentController.swift in Sources */,
+				76D70DFA265AC3D000310827 /* _StudentState.swift in Sources */,
 				76ADFEB1265AA120007F5E0D /* Test.swift in Sources */,
 				7686FA81266D74970027A068 /* StudentViewModel.swift in Sources */,
 				76DF99D2266BFEBE00760642 /* Score.swift in Sources */,
 				7686FA77266D73E00027A068 /* StudentRow.swift in Sources */,
 				763BCE96265A83D4004ACFA9 /* Division.swift in Sources */,
 				762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */,
+				76DC41BB26736DA4007593CA /* _TestsView.swift in Sources */,
 				763BCEAB265A845A004ACFA9 /* StudentsView.swift in Sources */,
 				763BCE78265A816B004ACFA9 /* AuthState.swift in Sources */,
 				76EA6DBD266D133700A1368A /* ScoreRow.swift in Sources */,
@@ -592,11 +592,11 @@
 				763BCEA1265A8427004ACFA9 /* TeacherTabView.swift in Sources */,
 				763BCEB0265A8486004ACFA9 /* AddDivisionView.swift in Sources */,
 				76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */,
-				76D70DE5265ABC2000310827 /* StudentTabView.swift in Sources */,
+				76D70DE5265ABC2000310827 /* _StudentTabView.swift in Sources */,
 				76D70DFF265ACA4C00310827 /* JoinDivisionView.swift in Sources */,
-				76D70DF2265ABC6D00310827 /* TestResultsView.swift in Sources */,
 				762C044C266BCAA7005CD64E /* TeacherState.swift in Sources */,
 				763BCE2C265A7F92004ACFA9 /* DivisionsShareApp.swift in Sources */,
+				76DC41C326736F66007593CA /* _DivisionsMenuBarItem.swift in Sources */,
 				760966D926625E540058D7B2 /* User.swift in Sources */,
 				76EAB6BE266D3728005C855E /* TestViewModel.swift in Sources */,
 				7686FA7C266D73E60027A068 /* StudentView.swift in Sources */,

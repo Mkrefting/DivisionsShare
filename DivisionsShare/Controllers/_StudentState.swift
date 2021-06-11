@@ -9,11 +9,16 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class StudentController: ObservableObject {
+class _StudentState: ObservableObject {
     
     @Published var divisions: [Division] = []
     private let db = Firestore.firestore()
     let user = Auth.auth().currentUser
+    
+    @Published var divisionChosen: Bool = false
+    
+    @Published var tests = [Test]()
+    
     
     func fetchData(){
         if (user != nil) {
