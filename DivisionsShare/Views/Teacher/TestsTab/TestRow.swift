@@ -11,7 +11,7 @@ struct TestRow: View {
     let test: Test
     var body: some View {
         HStack{
-            Text(test.name).foregroundColor(test.allScoresEntered ? .green : .red)
+            Text(test.name)//.foregroundColor(test.allScoresEntered ? .green : .red)
             Spacer()
             Text(test.dateString)
         }.padding()

@@ -12,16 +12,17 @@ class User: Identifiable {
     
     var id: String
     var fullName: String
+    var userID: String
     var userType: String
 
     
-    init(id: String, fullName: String, userType: String){
+    init(id: String, fullName: String, userID:String, userType: String){
         self.id = id
         self.fullName = fullName
+        self.userID = userID
         self.userType = userType
     }
     
-    #if DEBUG
-    static let example = User(id: "fa3k9rfu12", fullName: "Example Student", userType: "Student")
-    #endif
+    static let blank = User(id: "", fullName: "", userID: "", userType: "")
+
 }

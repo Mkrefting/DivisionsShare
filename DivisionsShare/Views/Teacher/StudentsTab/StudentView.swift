@@ -7,57 +7,18 @@
 
 import SwiftUI
 
-struct StudentScoreRow: View {
-    
-    @StateObject var scoreVM = ScoreViewModel()
-    
-    let score: Score
-    let testID: String
-    
-    var body: some View {
-        
-        HStack{
-            Text(scoreVM.test.name)
-            Spacer()
-            Text(String(score.resultN)+" / "+String(scoreVM.test.outOf))
-        }
-        .onAppear {
-            scoreVM.testID = testID
-            scoreVM.getTest()
-        }
-    }
-    
-}
-
-
-struct StudentStatsView: View {
-    
-    @ObservedObject var vm: StudentViewModel
-
-    var body: some View {
-        
-        HStack{
-            Text("Average Percentage:")
-            Spacer()
-            if vm.nPercentages > 0 {
-                Text(String(Int(vm.totalPercentage/Double(vm.nPercentages)))+"%")
-            } else {
-                Text("-")
-            }
-        }.padding()
-        
-    }
-    
-}
-
 struct StudentView: View {
     
     @EnvironmentObject var teacherState: TeacherState
     @StateObject var studentVM = StudentViewModel()
+    @State private var showRemoveStudentPrompt: Bool = false
+    @Environment(\.presentationMode) var presentationMode // used when student is removed from div
+
     let ID: String
     
     var body: some View {
         VStack{
+            
             StudentStatsView(vm: studentVM)
             
             List {
@@ -69,12 +30,30 @@ struct StudentView: View {
 
         }
         .navigationBarTitle(studentVM.fullName, displayMode: .inline)
+        .toolbar{
+        
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    self.showRemoveStudentPrompt = true
+                }, label: {
+                    Label("", systemImage: "trash")
+                })
+            }
+        }
         .onAppear {
             self.studentVM.ID = ID
             self.studentVM.divisionID = teacherState.currentDivision.id
             self.studentVM.fetchFullName()
             self.studentVM.fetchScores()
-            //self.studentVM.fetchStats()
+        }
+        .alert(isPresented: $showRemoveStudentPrompt){
+            Alert(title: Text("Are you sure you want to remove this student from the division?"), primaryButton: .default(Text("Yes")) {
+                studentVM.removeFromDivision()
+                if let index = teacherState.currentDivision.studentIDs.firstIndex(of: ID) {
+                    teacherState.currentDivision.studentIDs.remove(at: index)
+                }
+                presentationMode.wrappedValue.dismiss() // close student view
+            }, secondaryButton: .cancel(Text("No")))
         }
     }
 }

@@ -97,6 +97,7 @@ class TeacherState: ObservableObject {
             self._updateCurrentDivision(divisionName: self.divisions[0].name)
         } else {
             print("NO initial update of current division")
+            
         }
     }
     
@@ -128,7 +129,7 @@ class TeacherState: ObservableObject {
         if (user != nil) {
             db.collection("divisions").addDocument(data: [
                                                     "name": name,
-                                                    "joinCode": String(Int.random(in: 10000..<99999)),
+                                                    "joinCode": String(Int.random(in: 100000..<999999)),
                                                     "teacherID": user!.uid,
                                                     "studentIDs":[]]) { err in
                 if let err = err {

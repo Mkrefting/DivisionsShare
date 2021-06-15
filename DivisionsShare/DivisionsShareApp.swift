@@ -17,8 +17,6 @@ struct DivisionsShareApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(AuthState())
-                .environmentObject(TeacherState())
-                .environmentObject(StudentState())
         }
     }
 }

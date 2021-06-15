@@ -7,8 +7,24 @@
 
 import SwiftUI
 
+struct _TestView: View {
+    
+    let test: Test
+    
+    var body: some View {
+        HStack{
+            Text(test.name)
+            Spacer()
+            Text(test.dateString)
+        }.padding()
+        // add score
+    }
+
+}
+
 struct _TestsView: View {
     
+    @EnvironmentObject var authState: AuthState
     @EnvironmentObject var _studentState: _StudentState
     @State private var joinDivision: Bool = false
     
@@ -22,12 +38,7 @@ struct _TestsView: View {
                     
                     List {
                         ForEach(_studentState.tests){ test in
-                            HStack{
-                                Text(test.name)
-                                Spacer()
-                                Text(test.dateString)
-                            }.padding()
-                            // add score
+                            _TestView(test: test)
                         }
                     }
                     .listStyle(InsetGroupedListStyle())
@@ -36,6 +47,7 @@ struct _TestsView: View {
                     Text("No Division Selected")
                 }
                 
+                
             }
             .navigationBarTitle("Tests", displayMode: .inline)
             .toolbar{
@@ -43,8 +55,16 @@ struct _TestsView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     _DivisionsMenuBarItem(joinDivision: $joinDivision)
                         .sheet(isPresented: $joinDivision, content: {
-                            JoinDivisionView(isOpen: $joinDivision)
+                            _JoinDivisionView(isOpen: $joinDivision)
                         })
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        authState.signOut()
+                    }) {
+                        Text("Sign Out").font(.caption)
+                    }
                 }
             
             }

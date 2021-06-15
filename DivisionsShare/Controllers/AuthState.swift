@@ -22,6 +22,8 @@ class AuthState: ObservableObject {
     }
     
     @Published var userType = ""
+    
+    //var user: User = User.blank
 
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -34,6 +36,7 @@ class AuthState: ObservableObject {
             DispatchQueue.main.async {
                 self?.setUserType()
                 self?.signedIn = true
+                //self?.getUserDetails()
             }
         }
     }
@@ -49,15 +52,15 @@ class AuthState: ObservableObject {
             DispatchQueue.main.async {
                 self?.setUserType()
                 self?.signedIn = true
+                //self?.getUserDetails()
             }
         }
         
     }
     
     func addUser(userType: String, fullName: String){
-        let user = Auth.auth().currentUser
-        if (user != nil) {
-            db.collection("users").addDocument(data: ["userID": user!.uid, "fullName": fullName, "userType": userType]) { err in
+        if (auth.currentUser != nil) {
+            db.collection("users").addDocument(data: ["userID": auth.currentUser!.uid, "fullName": fullName, "userType": userType]) { err in
                 if let err = err {
                     print("error adding document! \(err)")
                 } else {
@@ -93,34 +96,35 @@ class AuthState: ObservableObject {
         }
     }
     
-    func getUser() -> User {
-        var user = User.example
-        let authUser = Auth.auth().currentUser
-        if (authUser != nil) {
-            db.collection("users").whereField("userID", isEqualTo: authUser!.uid).addSnapshotListener({(snapshot, error) in
-                guard (snapshot?.documents) != nil else {
-                    print ("no docs returned!")
-                    return
+    /*func getUserDetails() {
+        if (auth.currentUser != nil) {
+            db.collection("users").whereField("userID", isEqualTo: auth.currentUser!.uid).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let id = document.documentID // as in the collection document id
+                        let userID = data["userID"] as? String ?? "" // the id referencing authenticated user
+                        let fullName = data["fullName"] as? String ?? ""
+                        let userType = data["userType"] as? String ?? ""
+                        //let divisionIDs = data["divisionIDs"] as? [String] ?? []
+                        self.user = User(id: id, fullName: fullName, userID: userID, userType: userType)
+                    }
                 }
-                
-                for document in snapshot!.documents {
-                    let data = document.data()
-                    let userID = data["userID"] as? String ?? ""
-                    let fullName = data["fullName"] as? String ?? ""
-                    let userType = data["userType"] as? String ?? ""
-                    //let divisionIDs = data["divisionIDs"] as? [String] ?? []
-                    user = User(id: userID, fullName: fullName, userType: userType)
-                }
-            })
-        } else {
-            print("no user found - cannot fetch data")
+    
+            }
         }
-        return user
-    }
+    }*/
     
     func signOut() {
-        try? auth.signOut()
+        do {
+          try auth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
         self.signedIn = false
     }
+
 
 }

@@ -48,12 +48,14 @@ struct TestsView: View {
             }
             .navigationBarTitle("Tests", displayMode: .inline)
             .toolbar{
-                
+
                 ToolbarItem(placement: .navigationBarLeading) {
+                        
                     DivisionsMenuBarItem(addDivision: $addDivision)
                         .sheet(isPresented: $addDivision, content: {
                             AddDivisionView(isOpen: $addDivision)
                         })
+                    
                 }
             
                 ToolbarItem(placement: .navigationBarTrailing) {

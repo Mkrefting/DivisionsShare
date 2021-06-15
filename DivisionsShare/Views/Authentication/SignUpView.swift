@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @EnvironmentObject var authController: AuthState
+    @EnvironmentObject var authState: AuthState
     
     let userTypes = ["Student", "Teacher"]
     @State private var userSelection: Int = 0
@@ -19,6 +19,13 @@ struct SignUpView: View {
     
     var body: some View {
             VStack{
+                
+                Image("homeImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .padding()
+                
                 
                 VStack{
                     Text("You are a \(self.userTypes[userSelection])").italic()
@@ -51,7 +58,7 @@ struct SignUpView: View {
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                    authController.signUp(email: email, password: password, userType: self.userTypes[userSelection], fullName: fullName)
+                    authState.signUp(email: email, password: password, userType: self.userTypes[userSelection], fullName: fullName)
                 }, label: {
                     Text("Create Account")
                         .foregroundColor(Color.white)

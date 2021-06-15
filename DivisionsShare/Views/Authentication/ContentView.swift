@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var authController: AuthState
+    @EnvironmentObject var authState: AuthState
     
     var body: some View {
         VStack{
-            if authController.isSignedIn {
+            if authState.isSignedIn {
                 InterfaceChoiceView()
             }
             else {
                 SignInView()
             }
         }.onAppear {
-            authController.signedIn = authController.isSignedIn
+            authState.signedIn = authState.isSignedIn
         }
     }
 }

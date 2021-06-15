@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @EnvironmentObject var authController: AuthState
+    @EnvironmentObject var authState: AuthState
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -18,6 +18,12 @@ struct SignInView: View {
         NavigationView{
             
             VStack{
+                
+                Image("homeImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .padding()
                 
                 TextField("Email Address", text: $email)
                     .disableAutocorrection(true)
@@ -35,7 +41,7 @@ struct SignInView: View {
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                    authController.signIn(email: email, password: password)
+                    authState.signIn(email: email, password: password)
                 }, label: {
                     Text("Sign In")
                         .foregroundColor(Color.white)
@@ -44,7 +50,7 @@ struct SignInView: View {
                         .cornerRadius(15)
 
                 })
-                
+    
                 
                 NavigationLink("Create Account", destination: SignUpView())
                     .padding()
@@ -53,17 +59,16 @@ struct SignInView: View {
                 
                 
                 Button(action: {
-                    authController.signIn(email: "teacher@gmail.com", password: "password")
+                    authState.signIn(email: "teacher@gmail.com", password: "password")
                 }, label: {
                     Text("Teacher Auto Sign In")
                 })
                 
                 Button(action: {
-                    authController.signIn(email: "student@gmail.com", password: "password")
+                    authState.signIn(email: "krefting@gmail.com", password: "password")
                 }, label: {
                     Text("Student Auto Sign In")
                 })
-                
             }.navigationBarTitle("Sign In")
             .padding()
         }.navigationViewStyle(StackNavigationViewStyle())

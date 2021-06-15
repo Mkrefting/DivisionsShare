@@ -9,16 +9,18 @@ import SwiftUI
 
 struct InterfaceChoiceView: View {
     
-    @EnvironmentObject var authController: AuthState
+    @EnvironmentObject var authState: AuthState
     
     @State private var userType: String = ""
     
     var body: some View {
         VStack{
-            if authController.userType == "Teacher"{
+            if authState.userType == "Teacher"{
                 TeacherTabView()
-            } else if authController.userType == "Student" {
+                    .environmentObject(TeacherState())
+            } else if authState.userType == "Student" {
                 _StudentTabView()
+                    .environmentObject(_StudentState())
             } else {
                 SignInView()
             }

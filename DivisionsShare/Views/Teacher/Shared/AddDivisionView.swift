@@ -29,7 +29,6 @@ struct AddDivisionView: View {
                     Text("You already have a division with this name!").foregroundColor(Color.red).padding()
                 }
             
-                
                 Button(action: {
                     self.showError = !self.teacherState.addDivision(name: divisionName)
                     if !self.showError {

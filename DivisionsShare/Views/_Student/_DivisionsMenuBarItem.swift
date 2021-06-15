@@ -38,3 +38,4 @@ struct _DivisionsMenuBarItem: View {
         }
     }
 }
+

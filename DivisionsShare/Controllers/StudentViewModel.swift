@@ -58,13 +58,7 @@ class StudentViewModel: ObservableObject {
             
         })
     }
-    
-    /*func fetchStats(){
-        scores.forEach { score in
-            self.updateAveragePercentage(score: score)
-        }
-    }*/
-    
+
     func updateAveragePercentage(score: Score) {
         db.collection("tests").document(score.testID).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -74,6 +68,16 @@ class StudentViewModel: ObservableObject {
                 self.nPercentages += 1
             } else {
                 print("Cannot get percentage")
+            }
+        }
+    }
+    
+    func removeFromDivision(){
+        db.collection("divisions").document(divisionID).getDocument() { (document, error) in
+            if let document = document, document.exists {
+                self.db.collection("divisions").document(document.documentID).updateData(["studentIDs": FieldValue.arrayRemove([self.ID])])
+            } else {
+                print("Cannot remove student")
             }
         }
     }
