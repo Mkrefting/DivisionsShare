@@ -58,7 +58,7 @@ struct SignInView: View {
                 Spacer()
                 
                 
-                Button(action: {
+                /*Button(action: {
                     authState.signIn(email: "teacher@gmail.com", password: "password")
                 }, label: {
                     Text("Teacher Auto Sign In")
@@ -68,7 +68,8 @@ struct SignInView: View {
                     authState.signIn(email: "krefting@gmail.com", password: "password")
                 }, label: {
                     Text("Student Auto Sign In")
-                })
+                })*/
+                
             }.navigationBarTitle("Sign In")
             .padding()
         }.navigationViewStyle(StackNavigationViewStyle())

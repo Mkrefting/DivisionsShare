@@ -28,6 +28,7 @@ struct StudentsView: View {
                 }.padding()
                 
                 List {
+                    //teacherState.divisions
                     ForEach(teacherState.currentDivision.studentIDs, id: \.self){ studentID in
                         NavigationLink(destination: StudentView(ID: studentID)){
                             StudentRow(ID: studentID)
@@ -35,7 +36,7 @@ struct StudentsView: View {
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
-                
+
             }
             .navigationBarTitle("Students", displayMode: .inline)
             .toolbar{

@@ -23,7 +23,6 @@ class _StudentState: ObservableObject {
     
     var id: String = "" // id of user collection, not authentication id (i.e. studentID)
     
-    
     func setID(handler: @escaping () -> Void){
         if (user != nil) {
             print("Setting student id")
@@ -50,6 +49,7 @@ class _StudentState: ObservableObject {
         print("INFO: Initial opening of tab view -> Fetching divisions, setting current division, fetch tests")
         self.setID(handler : {
             self._fetchDivisions(handler: {
+                print("FETCHING DATA")
                 self._setCurrentDivision()
                 self._fetchTests()
             })

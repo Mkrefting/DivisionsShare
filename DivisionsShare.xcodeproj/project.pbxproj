@@ -38,6 +38,7 @@
 		76ADFEB1265AA120007F5E0D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEB0265AA120007F5E0D /* Test.swift */; };
 		76ADFEF8265AA8CC007F5E0D /* AddTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */; };
 		76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */; };
+		76D6ADAC267A3332006D0FED /* _TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D6ADAB267A3332006D0FED /* _TestViewModel.swift */; };
 		76D70DE0265ABBBE00310827 /* InterfaceChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */; };
 		76D70DE5265ABC2000310827 /* _StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DE4265ABC2000310827 /* _StudentTabView.swift */; };
 		76D70DFA265AC3D000310827 /* _StudentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D70DF9265AC3D000310827 /* _StudentState.swift */; };
@@ -108,6 +109,7 @@
 		76ADFEB0265AA120007F5E0D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		76ADFEF7265AA8CC007F5E0D /* AddTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestView.swift; sourceTree = "<group>"; };
 		76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
+		76D6ADAB267A3332006D0FED /* _TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TestViewModel.swift; sourceTree = "<group>"; };
 		76D70DDF265ABBBE00310827 /* InterfaceChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceChoiceView.swift; sourceTree = "<group>"; };
 		76D70DE4265ABC2000310827 /* _StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _StudentTabView.swift; sourceTree = "<group>"; };
 		76D70DF9265AC3D000310827 /* _StudentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _StudentState.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				76B6F79E266CE7AC00A72C4B /* ScoreViewModel.swift */,
 				7686FA80266D74970027A068 /* StudentViewModel.swift */,
 				76D70DF9265AC3D000310827 /* _StudentState.swift */,
+				76D6ADAB267A3332006D0FED /* _TestViewModel.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				763BCEB0265A8486004ACFA9 /* AddDivisionView.swift in Sources */,
 				76B6F79F266CE7AC00A72C4B /* ScoreViewModel.swift in Sources */,
 				763F67FC26790849005B2D50 /* StudentScoreRow.swift in Sources */,
+				76D6ADAC267A3332006D0FED /* _TestViewModel.swift in Sources */,
 				76D70DE5265ABC2000310827 /* _StudentTabView.swift in Sources */,
 				76D70DFF265ACA4C00310827 /* _JoinDivisionView.swift in Sources */,
 				762C044C266BCAA7005CD64E /* TeacherState.swift in Sources */,

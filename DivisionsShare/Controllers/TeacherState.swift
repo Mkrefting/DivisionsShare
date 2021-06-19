@@ -19,6 +19,8 @@ class TeacherState: ObservableObject {
 
     @Published var divisionChosen: Bool = false
     @Published var currentDivision: Division = Division.blank
+    
+    @Published var currentDivisionID: String = ""
 
     @Published var currentTest: Test = Test.blank
     
@@ -37,6 +39,7 @@ class TeacherState: ObservableObject {
     
     func updateCurrentDivision(division: Division){
         self.currentDivision = division
+        self.currentDivisionID = division.id
         self.divisionChosen = true
     }
     
@@ -81,7 +84,6 @@ class TeacherState: ObservableObject {
                     //let studentNames = data["studentNames"] as? [String] ?? []
                     return Division(id: id, name: name, joinCode: joinCode, teacherID: teacherID, studentIDs: studentIDs)
                 })
-                
                 handler()
             })
         } else {
@@ -92,6 +94,8 @@ class TeacherState: ObservableObject {
     func _setCurrentDivision(){
         // initial set currentDivision
         print("Setting Current Division")
+        self._updateCurrentDivision(divisionName: self.divisions[0].name)
+
         if !self.divisionChosen && !self.divisions.isEmpty {
             print("initial update of currentDivision, divisions is empty? \(self.divisions.isEmpty), divisionChosen? \(self.divisionChosen)")
             self._updateCurrentDivision(divisionName: self.divisions[0].name)

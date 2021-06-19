@@ -36,8 +36,15 @@ struct TestView: View {
             // i need to be filter through the list of students: looking at their names or their score.resultN
             // i can find their names
             // but can't find their scoreN...
-            // maybe create score before?
+            // maybe create score before? - each score should have 'added?'
             
+            /*List {
+                ForEach(testVM.scores){ score in
+                    ScoreRow(studentID: score.studentID)
+                }
+            }
+            .listStyle(InsetGroupedListStyle())*/
+
             List {
                 ForEach(testVM.studentIDs, id: \.self){ studentID in
                     ScoreRow(studentID: studentID)
