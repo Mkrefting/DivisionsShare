@@ -12,33 +12,24 @@ struct StudentStatsView: View {
     @ObservedObject var vm: StudentViewModel
 
     var body: some View {
-        VStack {
-            HStack{
-                Text("Average Test Result:")
-                Spacer()
+        HStack {
+            VStack(alignment: .leading){
                 if vm.nPercentages > 0 {
-                    Text(String(Int(vm.totalPercentage/Double(vm.nPercentages)))+"%")
-                } else {
-                    Text("-")
+                    Text("Average Score")
+                    Text(String(Int(vm.totalPercentage/Double(vm.nPercentages)))+"%").bold()
                 }
             }.padding()
-            
-            HStack{
-                Spacer()
-                if vm.nFirstAwards > 0 {
-                    Text("\(vm.nFirstAwards) 🥇 ")
-                    Spacer()
-                }
-                if vm.nSecondAwards > 0 {
-                    Text("\(vm.nSecondAwards) 🥈")
-                }
-                if vm.nThirdAwards > 0 {
-                    Spacer()
-                    Text("\(vm.nThirdAwards) 🥉")
-                }
-                Spacer()
+            Spacer()
+            if vm.nFirstAwards > 0 {
+                Text("\(vm.nFirstAwards) 🥇").padding()
             }
-            
+            if vm.nSecondAwards > 0 {
+                Text("\(vm.nSecondAwards) 🥈").padding()
+            }
+            if vm.nThirdAwards > 0 {
+                Text("\(vm.nThirdAwards) 🥉").padding()
+            }
+        
         }
 
         

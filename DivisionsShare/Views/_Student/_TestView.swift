@@ -35,15 +35,16 @@ struct _TestView: View {
                 Text(test.dateString).font(.caption)
             }
             Spacer()
-            AwardView(award: _testVM.award)
-            Spacer()
-            if self._testVM.score.resultN != -1 { // i.e. if there is no score, and current score is just static 'blank'
-                VStack(alignment: .leading) {
-                    Text(String(self._testVM.score.resultN)).bold()
-                    Text("/ \(String(self._testVM.test.outOf))").font(.caption)
+            HStack {
+                AwardView(award: _testVM.award).padding()
+                if self._testVM.score.resultN != -1 { // i.e. if there is no score, and current score is just static 'blank'
+                    VStack(alignment: .leading) {
+                        Text(String(self._testVM.score.resultN)).bold()
+                        Text("/ \(String(self._testVM.test.outOf))").font(.caption)
+                    }
+                } else {
+                    Text("-")
                 }
-            } else {
-                Text("-")
             }
 
         }.padding()

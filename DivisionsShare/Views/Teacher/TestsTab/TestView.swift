@@ -21,16 +21,14 @@ struct TestView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Division:")
-                    Text("Date:")
-                    Text("Out of:")
-                }.padding()
+                    Text("\(testVM.divisionName)").italic()
+                    Text("\(test.dateString)").bold()
+                }.padding(20)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("\(testVM.divisionName)")
-                    Text("\(test.dateString)")
+                    Text("Out of")
                     Text("\(testVM.test.outOf)")
-                }.padding()
+                }.padding(20)
             }
             
             // i need to be filter through the list of students: looking at their names or their score.resultN
@@ -57,7 +55,9 @@ struct TestView: View {
             presentationMode.wrappedValue.dismiss()
             testVM.closeDueToDelete = false
         }
-        .navigationBarTitle(Text(test.name), displayMode: .inline)
+        //.navigationBarTitle(Text(test.name), displayMode: .inline)
+        .navigationBarTitle(Text(test.name))
+
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Edit") {

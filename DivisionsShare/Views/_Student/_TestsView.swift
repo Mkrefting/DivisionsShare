@@ -33,7 +33,9 @@ struct _TestsView: View {
                 }
                 
             }
-            .navigationBarTitle("Tests", displayMode: .inline)
+            //.navigationBarTitle("Tests", displayMode: .inline)
+            .navigationBarTitle("Tests")
+
             .toolbar{
                 
                 ToolbarItem(placement: .navigationBarLeading) {

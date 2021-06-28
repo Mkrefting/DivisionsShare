@@ -38,7 +38,7 @@ struct StudentsView: View {
                 .listStyle(InsetGroupedListStyle())
 
             }
-            .navigationBarTitle("Students", displayMode: .inline)
+            .navigationBarTitle("Students")
             .toolbar{
                 
                 ToolbarItem(placement: .navigationBarLeading) {

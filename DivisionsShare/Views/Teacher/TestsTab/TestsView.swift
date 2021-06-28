@@ -24,14 +24,6 @@ struct TestsView: View {
                     
                     List {
                         
-                        // filter lists
-                        Picker("", selection: $filterIndex) {
-                            ForEach(0 ..< filters.count) {
-                                Text(self.filters[$0])
-                            }
-                        }.pickerStyle(SegmentedPickerStyle()).padding()
-                        
-                        
                         ForEach(teacherState.tests){ test in
                             if !(filterIndex == 1 && test.allScoresEntered){
                                 NavigationLink(destination: TestView(test: test)){
@@ -48,7 +40,9 @@ struct TestsView: View {
                 }
                 
             }
-            .navigationBarTitle("Tests", displayMode: .inline)
+            //.navigationBarTitle("Tests", displayMode: .inline)
+            .navigationBarTitle("Tests")
+
             .toolbar{
 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -58,6 +52,15 @@ struct TestsView: View {
                             AddDivisionView(isOpen: $addDivision)
                         })
                     
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    // filter lists
+                    Picker("", selection: $filterIndex) {
+                        ForEach(0 ..< filters.count) {
+                            Text(self.filters[$0])
+                        }
+                    }.pickerStyle(SegmentedPickerStyle()).padding()
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {

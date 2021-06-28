@@ -29,7 +29,7 @@ struct StudentView: View {
             .listStyle(InsetGroupedListStyle())
 
         }
-        .navigationBarTitle(studentVM.fullName, displayMode: .inline)
+        .navigationBarTitle(studentVM.fullName)
         .toolbar{
         
             ToolbarItem(placement: .navigationBarTrailing) {
