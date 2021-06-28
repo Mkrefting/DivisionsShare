@@ -29,14 +29,17 @@ class AuthState: ObservableObject {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
             if let error = error {
                 print(error.localizedDescription)
-            } else {
-                print("User Signed In")
             }
-            
+                    
             DispatchQueue.main.async {
-                self?.setUserType()
-                self?.signedIn = true
-                //self?.getUserDetails()
+                if result != nil {
+                    print("User signed in, with result \(String(describing: result))")
+                    self?.setUserType()
+                    self?.signedIn = true
+                    //self?.getUserDetails()
+                } else {
+                    print("Cannot sign user in")
+                }
             }
         }
     }

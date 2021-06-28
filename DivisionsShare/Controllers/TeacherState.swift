@@ -94,7 +94,7 @@ class TeacherState: ObservableObject {
     func _setCurrentDivision(){
         // initial set currentDivision
         print("Setting Current Division")
-        self._updateCurrentDivision(divisionName: self.divisions[0].name)
+        //self._updateCurrentDivision(divisionName: self.divisions[0].name)
 
         if !self.divisionChosen && !self.divisions.isEmpty {
             print("initial update of currentDivision, divisions is empty? \(self.divisions.isEmpty), divisionChosen? \(self.divisionChosen)")

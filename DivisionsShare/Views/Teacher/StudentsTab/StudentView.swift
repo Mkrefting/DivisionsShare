@@ -45,6 +45,7 @@ struct StudentView: View {
             self.studentVM.divisionID = teacherState.currentDivision.id
             self.studentVM.fetchFullName()
             self.studentVM.fetchScores()
+            self.studentVM.fetchAwardsStats()
         }
         .alert(isPresented: $showRemoveStudentPrompt){
             Alert(title: Text("Are you sure you want to remove this student from the division?"), primaryButton: .default(Text("Yes")) {

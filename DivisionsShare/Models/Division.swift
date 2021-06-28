@@ -27,7 +27,7 @@ class Division: Identifiable {
 
     }
     
-    static let blank = Division(id: "", name: "", joinCode: "", teacherID: "", studentIDs: [""])
+    static let blank = Division(id: "", name: "", joinCode: "", teacherID: "", studentIDs: [])
     
     #if DEBUG
     static let example = Division(id: "fa3k9rfu12", name: "vCZ-1", joinCode: "12345678", teacherID: "12345", studentIDs: ["132"])

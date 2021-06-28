@@ -61,7 +61,7 @@ class ScoreViewModel: ObservableObject {
             
         })
     }
-    
+
     func addScore(testID: String, resultNString: String){
         let resultN = Int(resultNString) ?? 0 // if have entered non-ints into decimal pad, make result 0
         if !self.hasScore {

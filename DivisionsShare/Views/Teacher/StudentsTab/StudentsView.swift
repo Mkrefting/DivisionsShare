@@ -21,7 +21,7 @@ struct StudentsView: View {
                 
                 HStack(){
                     Spacer()
-                    Text("Join Code:")
+                    Text("Join PIN")
                     Spacer()
                     Text(teacherState.currentDivision.joinCode)
                     Spacer()

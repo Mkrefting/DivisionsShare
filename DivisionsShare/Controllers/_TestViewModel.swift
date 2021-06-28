@@ -18,6 +18,7 @@ class _TestViewModel: ObservableObject {
     @Published var hasScore: Bool = false
     @Published var score: Score = Score.blank
     @Published var test: Test = Test.blank
+    @Published var award: String = "" // "first" if first, "second" if second, "third" if third, else ""
 
     func fetchData(){
         self.getScore()
@@ -54,6 +55,16 @@ class _TestViewModel: ObservableObject {
                 let outOf = data?["outOf"] as? Int ?? -1
                 let allScoresEntered = data?["allScoresEntered"] as? Bool ?? false
                 self.test = Test(id: docId, divisionID: divisionID, name: name, date: date, outOf: outOf, allScoresEntered: allScoresEntered)
+                
+                // check for awards
+                if (data?["firstStudentID"] as? String ?? "-1") == self.studentID {
+                    self.award = "first"
+                } else if (data?["secondStudentID"] as? String ?? "-1") == self.studentID {
+                    self.award = "second"
+                } else if (data?["thirdStudentID"] as? String ?? "-1") == self.studentID {
+                    self.award = "third"
+                }
+
             } else {
                 print("Test does not exist")
             }

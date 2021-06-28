@@ -58,6 +58,7 @@ struct SignUpView: View {
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
+                    // let authReturn = 
                     authState.signUp(email: email, password: password, userType: self.userTypes[userSelection], fullName: fullName)
                 }, label: {
                     Text("Create Account")

@@ -10,6 +10,7 @@
 		1E77D994A6390DCE91A1911A /* Pods_DivisionsShare_DivisionsShareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7702B6EF092E045B489E7B /* Pods_DivisionsShare_DivisionsShareUITests.framework */; };
 		6F193E303AE8840F097DE71B /* Pods_DivisionsShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F048F047938757F4BEEF566 /* Pods_DivisionsShare.framework */; };
 		760966D926625E540058D7B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760966D826625E540058D7B2 /* User.swift */; };
+		762A5FAD268A14C600F9D7F1 /* _TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762A5FAC268A14C600F9D7F1 /* _TestView.swift */; };
 		762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */; };
 		762C044C266BCAA7005CD64E /* TeacherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762C044B266BCAA7005CD64E /* TeacherState.swift */; };
 		763BCE2C265A7F92004ACFA9 /* DivisionsShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BCE2B265A7F92004ACFA9 /* DivisionsShareApp.swift */; };
@@ -75,6 +76,7 @@
 		6F048F047938757F4BEEF566 /* Pods_DivisionsShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DivisionsShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720D0759202B7BBA3A899EF3 /* Pods-DivisionsShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivisionsShareTests.release.xcconfig"; path = "Target Support Files/Pods-DivisionsShareTests/Pods-DivisionsShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		760966D826625E540058D7B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		762A5FAC268A14C600F9D7F1 /* _TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TestView.swift; sourceTree = "<group>"; };
 		762C042D266BB908005CD64E /* DivisionsMenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionsMenuBarItem.swift; sourceTree = "<group>"; };
 		762C044B266BCAA7005CD64E /* TeacherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherState.swift; sourceTree = "<group>"; };
 		763BCE28265A7F92004ACFA9 /* DivisionsShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivisionsShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +276,7 @@
 			children = (
 				76D70DE4265ABC2000310827 /* _StudentTabView.swift */,
 				76DC41BA26736DA4007593CA /* _TestsView.swift */,
+				762A5FAC268A14C600F9D7F1 /* _TestView.swift */,
 				76DC41C226736F66007593CA /* _DivisionsMenuBarItem.swift */,
 				76D70DFE265ACA4C00310827 /* _JoinDivisionView.swift */,
 			);
@@ -589,6 +592,7 @@
 				7686FA81266D74970027A068 /* StudentViewModel.swift in Sources */,
 				76DF99D2266BFEBE00760642 /* Score.swift in Sources */,
 				7686FA77266D73E00027A068 /* StudentRow.swift in Sources */,
+				762A5FAD268A14C600F9D7F1 /* _TestView.swift in Sources */,
 				763BCE96265A83D4004ACFA9 /* Division.swift in Sources */,
 				762C042E266BB908005CD64E /* DivisionsMenuBarItem.swift in Sources */,
 				76DC41BB26736DA4007593CA /* _TestsView.swift in Sources */,

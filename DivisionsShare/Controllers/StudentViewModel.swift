@@ -23,6 +23,10 @@ class StudentViewModel: ObservableObject {
     @Published var totalPercentage: Double = 0
     @Published var nPercentages: Int = 0 // equal to scores.length
     
+    @Published var nFirstAwards: Int = 0
+    @Published var nSecondAwards: Int = 0
+    @Published var nThirdAwards: Int = 0
+    
 
     func fetchFullName() {
         db.collection("users").document(self.ID).getDocument { (document, error) in
@@ -79,6 +83,31 @@ class StudentViewModel: ObservableObject {
             } else {
                 print("Cannot remove student")
             }
+        }
+    }
+    
+    func fetchAwardsStats(){
+        db.collection("tests").whereField("divisionID", isEqualTo: self.divisionID)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting user tests: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let firstStudentID = data["firstStudentID"] as? String ?? "null"
+                        if firstStudentID == self.ID {
+                            self.nFirstAwards += 1
+                        }
+                        let secondStudentID = data["secondStudentID"] as? String ?? "null"
+                        if secondStudentID == self.ID {
+                            self.nSecondAwards += 1
+                        }
+                        let thirdStudentID = data["thirdStudentID"] as? String ?? "null"
+                        if thirdStudentID == self.ID {
+                            self.nThirdAwards += 1
+                        }
+                    }
+                }
         }
     }
         

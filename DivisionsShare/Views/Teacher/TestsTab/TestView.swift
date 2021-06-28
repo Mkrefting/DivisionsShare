@@ -73,6 +73,9 @@ struct TestView: View {
             testVM.setDivisionName()
             testVM.fetchStudentIDs()
         }
+        .onDisappear {
+            testVM.updatePositions()
+        }
         .sheet(isPresented: $showEdit, content: {
             EditTestView(testVM: testVM, isOpen: $showEdit)
         })

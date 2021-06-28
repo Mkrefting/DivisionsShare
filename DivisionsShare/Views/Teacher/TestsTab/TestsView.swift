@@ -22,14 +22,16 @@ struct TestsView: View {
                 
                 if teacherState.divisionChosen {
                     
-                    // filter lists
-                    Picker("", selection: $filterIndex) {
-                        ForEach(0 ..< filters.count) {
-                            Text(self.filters[$0])
-                        }
-                    }.pickerStyle(SegmentedPickerStyle()).padding()
-                    
                     List {
+                        
+                        // filter lists
+                        Picker("", selection: $filterIndex) {
+                            ForEach(0 ..< filters.count) {
+                                Text(self.filters[$0])
+                            }
+                        }.pickerStyle(SegmentedPickerStyle()).padding()
+                        
+                        
                         ForEach(teacherState.tests){ test in
                             if !(filterIndex == 1 && test.allScoresEntered){
                                 NavigationLink(destination: TestView(test: test)){
@@ -57,7 +59,7 @@ struct TestsView: View {
                         })
                     
                 }
-            
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if teacherState.divisionChosen { // only show "Add Test" if a division has been chosen
                         Button("Add Test"){
