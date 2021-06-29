@@ -14,7 +14,7 @@ class StudentViewModel: ObservableObject {
 
     var ID: String = ""
     var divisionID: String = ""
-    
+
     @Published var fullName = "" // if no score yet, but still need name
     
     @Published var scores: [Score] = [] // of this student

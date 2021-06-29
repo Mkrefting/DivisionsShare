@@ -18,7 +18,7 @@ class TestViewModel: ObservableObject {
     
     @Published var divisionName: String = ""
     @Published var studentIDs: [String] = []
-    //@Published var scores: [Score] = []
+    @Published var scores: [Score] = []
     
     func updateTest(name: String, date: Date, outOf: Int){
         db.collection("tests").document(self.test.id).updateData(["name": name, "date": date, "outOf": outOf]) { err in
@@ -31,6 +31,7 @@ class TestViewModel: ObservableObject {
     }
     
     func deleteTest(){
+        // 1. Delete the test
         db.collection("tests").document(self.test.id).delete() { err in
             if let err = err {
                 print("Error deleting test with name \(self.test.name): \(err)")
@@ -39,6 +40,17 @@ class TestViewModel: ObservableObject {
             }
             self.test = Test.blank
         }
+        // 2. Delete all scores relating to the test
+        scores.forEach { score in
+            db.collection("scores").document(score.id).delete() { err in
+                if let err = err {
+                    print("Error deleting score with id \(score.id): \(err)")
+                }
+            }
+        }
+        self.scores.removeAll()
+        print("Successfully removed all scores from test")
+
     }
     
     func setDivisionName(){
@@ -67,7 +79,7 @@ class TestViewModel: ObservableObject {
         }
     }
     
-    /*func fetchScores(){
+    func fetchScores(){
         db.collection("scores").whereField("testID", isEqualTo: test.id).addSnapshotListener({(snapshot, error) in
             guard let documents = snapshot?.documents else {
                 print("No scores to fetch")
@@ -84,7 +96,7 @@ class TestViewModel: ObservableObject {
                 return Score(id: id, divisionID: divisionID, testID: testID, studentID: studentID, studentName: studentName, resultN: resultN)
             }
         })
-    }*/
+    }
     
     func updateTestField(fieldName: String, value: String) {
         db.collection("tests").document(self.test.id).updateData([fieldName: value]) { err in

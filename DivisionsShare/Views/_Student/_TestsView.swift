@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+struct _DivStatsView: View {
+    
+    @EnvironmentObject var _studentState: _StudentState
+    @StateObject var vm = StudentViewModel()
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading){
+                if vm.nPercentages > 0 {
+                    Text("Average Score")
+                    Text(String(Int(vm.totalPercentage/Double(vm.nPercentages)))+"%").bold()
+                }
+            }.padding()
+            Spacer()
+            if vm.nFirstAwards > 0 {
+                Text("\(vm.nFirstAwards) 🥇").padding()
+            }
+            if vm.nSecondAwards > 0 {
+                Text("\(vm.nSecondAwards) 🥈").padding()
+            }
+            if vm.nThirdAwards > 0 {
+                Text("\(vm.nThirdAwards) 🥉").padding()
+            }
+        }.onAppear {
+            self.vm.ID = _studentState.id
+            self.vm.divisionID = _studentState.currentDivision.id
+            self.vm.fetchScores()
+            self.vm.fetchAwardsStats()
+        }
+    }
+    
+}
+
 struct _TestsView: View {
     
     @EnvironmentObject var authState: AuthState
@@ -20,6 +53,8 @@ struct _TestsView: View {
             VStack {
                 
                 if _studentState.divisionChosen {
+                    
+                    _DivStatsView()
                     
                     List {
                         ForEach(_studentState.tests){ test in

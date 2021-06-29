@@ -12,7 +12,6 @@ struct EditTestView: View {
     @EnvironmentObject var teacherState: TeacherState
     @Environment(\.presentationMode) var presentationMode // used when test is deleted
 
-    //@ObservedObject var editTestVM = EditTestViewModel()
     @ObservedObject var testVM: TestViewModel
     
     @Binding var isOpen: Bool

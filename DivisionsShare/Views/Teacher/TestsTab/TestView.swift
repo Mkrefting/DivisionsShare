@@ -72,6 +72,7 @@ struct TestView: View {
             testVM.test = test
             testVM.setDivisionName()
             testVM.fetchStudentIDs()
+            testVM.fetchScores()
         }
         .onDisappear {
             testVM.updatePositions()

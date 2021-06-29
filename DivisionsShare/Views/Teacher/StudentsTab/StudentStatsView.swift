@@ -17,6 +17,8 @@ struct StudentStatsView: View {
                 if vm.nPercentages > 0 {
                     Text("Average Score")
                     Text(String(Int(vm.totalPercentage/Double(vm.nPercentages)))+"%").bold()
+                } else {
+                    Text("No scores")
                 }
             }.padding()
             Spacer()
